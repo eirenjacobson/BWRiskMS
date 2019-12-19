@@ -1,0 +1,169 @@
+---
+title: "Figure and Table Generation"
+author: "Eiren Jacobson"
+date: "12/19/2019"
+output: pdf_document
+---
+
+This document creates figures and tables for the manuscript
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+```
+
+```{r packages, include=FALSE}
+
+library(readxl) # Y
+library(readr) # Y
+library(lubridate) # Y
+
+library(dplyr) # Y
+library(ggplot2) # Y
+
+
+library(sp) # Y
+library(rgdal) # Y
+
+library(viridis)
+library(tidyr)
+library(knitr)
+
+library(mgcv)
+
+```
+
+
+```{r loadData, include=FALSE}
+
+load("./Data/SCCEffort.RData")
+load("./Data/rlData.RData")
+
+```
+
+```{r plotTesselations}
+
+tplot <- ggplot(Effort$HPPolygons)+
+  geom_polygon(aes(x=X/1000, y=Y/1000, group=Phone), fill="white", color="black")+
+  geom_point(data=Effort$HPEffort, aes(x=UTM_X/1000, y = UTM_Y/1000))+
+  facet_wrap(~SCC, nrow=1)+
+  ylab("UTM Y (km)")+
+  xlab("UTM X (km)")+
+  theme_bw()+
+  coord_equal()
+
+ggsave(plot=tplot, file="./Figures/SCCTesselations.pdf", width=8, height=5 )
+
+```
+
+
+# Results
+
+```{r ObsTable, results="asis"}
+
+# Create a table of the number of data points for each SCC and Period
+
+table <- 
+  rlData %>% 
+  group_by(SCC, Period) %>% 
+  mutate("HPs"=length(unique(Phone))) %>%
+  dplyr::summarize("Observations"=round(length(DateTime)/length(unique(Phone)))) %>% 
+  spread(key=Period, value=Observations) %>%
+  right_join(rlData %>% group_by(SCC) %>% summarize("HPs"=length(unique(Phone))), by = "SCC")
+
+table <- table[,c(1,5,2,3,4)]
+
+names(table) <- c("SCC", "HPs", "Pre-Exercise", "Phase A", "Phase B")
+
+save(table, file="./Data/summaryTable.RData")
+
+```
+
+
+```{r PlotTimeseries, fig.cap="Summary of PMRF timeseries.  Days for which data were  provided are shaded in light gray.  Dark gray bars indicate the number of beaked whale group dives recorded on all range hydrophones over the course of each day of the experiment.  Red triangles indicate days on which MFA sonar was recorded.  Black dots indicate days on which ships were present on the range.", fig.height=6, fig.width=6}
+
+rlDataSummary <- rlData %>% 
+  group_by(dayCount, SCC) %>%
+  summarise(Dives=sum(DivePresent)/length(DivePresent), Sonar=sign(sum(MaxRL)))
+
+ships <- rlData %>% group_by(dayCount, SCC) %>% filter(ShipCount!=0) 
+
+ggplot(rlDataSummary)+
+  geom_col(aes(x=dayCount, y = max(rlDataSummary$Dives)), fill="white", width=1)+
+  geom_col(aes(x=dayCount, y=Dives))+
+  geom_point(data=ships, aes(x=dayCount, y=max(rlDataSummary$Dives)))+
+  ylab("Percent of half hour periods with dives present")+
+  xlab("")+
+  geom_point(aes(x=dayCount, y=Sonar-1), col="red", shape=17, size=3)+
+  facet_wrap(~SCC, nrow=length(unique(rlData$SCC)))+
+#  scale_x_date(date_breaks="3 days", date_labels="%d %b %y")+
+  xlab("Day relative to first day of Phase A")+
+  scale_y_continuous(limits=c(0, max(rlDataSummary$Dives)))+
+  theme_bw()+
+  theme(panel.grid = element_blank(), panel.background = element_rect(fill="gray90"))
+
+ggsave(last_plot(), filename = "./Figures/Timeseries.pdf", width = 6, height = 8)
+
+```
+
+
+```{r, fig.width=6, fig.height=6, fig.cap="Observed probability of diving within a 30-min period (y-axis) at each hydrophone during each of three experimental periods (black dots) before exercises began, when ships were present, and when ships and sonar were present (x-axis)."}
+
+
+compareData <- rlData %>%
+  group_by(Phone, Period, SCC) %>%
+  dplyr::summarize("PDive" = sum(DivePresent, na.rm=TRUE)/length(DivePresent), areakm = unique(areakm))
+
+ggplot(compareData, aes(x=Period, y=PDive, group=Period))+
+  geom_boxplot()+
+  ylab("Probability of GVP")+
+  scale_x_discrete(name="",labels=c("Pre-Activity", "Nav. Activity", "MFA Sonar"))+
+  theme_bw()
+
+ggsave(plot=last_plot(), file="./Figures/PDiveBoxplot.pdf", width=6, height=4)
+
+```
+
+
+```{r PlotDetRate, fig.width=8, fig.height=8, fig.cap="Tesselation of PMRF range hydrophones (black dots) where each polygon is shaded according to the detection rate (no. dives/no. 30 min periods) within each experimental period (columns; August 2013, February 2014, and August 2014) without sonar (top row) and with sonar (bottom row) at that hydrophone."}
+
+Effort$HPPolygons$SCC <- factor(Effort$HPPolygons$SCC, ordered=TRUE, 
+                  levels=c("Feb13", "Aug13", "Feb14", "Aug14", "Feb17", "Aug17"))
+
+polyDF <- left_join(Effort$HPPolygons, compareData, by = c("Phone", "SCC")) 
+polyDF$Period <- recode_factor(polyDF$Period, '00'="Baseline", '02'="Ships", "12"="Sonar")
+
+ggplot()+
+  geom_polygon(data=polyDF, aes(x=X/1000, y=Y/1000, group=Phone, fill=PDive))+
+ # geom_point(data=HPs, aes(x=UTM_X/1000, y=UTM_Y/1000), size=0.75)+
+  scale_fill_viridis(option="plasma")+
+  facet_grid(Period~SCC)+
+  coord_equal()+
+  xlab("UTM X (km)")+
+  ylab("UTM Y (km)")+
+  theme_bw()
+
+ggsave(plot=last_plot(), file="./Figures/SpatialComparisonPDive.pdf", 
+       width=8, height=10)
+
+```
+
+```{r}
+
+naiveEst <- rlData %>% 
+  group_by(ShipCount, SonarEver) %>% 
+  summarize(PDive = sum(DivePresent, na.rm=TRUE)/length(DivePresent))
+
+wShips <- (naiveEst$PDive[2]-naiveEst$PDive[1])/naiveEst$PDive[1]
+
+wSonar <- (naiveEst$PDive[3]-naiveEst$PDive[2])/naiveEst$PDive[2]
+
+wBoth <- (naiveEst$PDive[3]-naiveEst$PDive[1])/naiveEst$PDive[1]
+
+naive <- c(wShips, wSonar, wBoth)
+
+save(naive, file="./Data/naiveEstReduction.RData")
+
+```
+
+
+

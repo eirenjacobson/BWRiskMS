@@ -233,7 +233,10 @@ include_graphics("./Figures/Timeseries.png")
 load("./Data/naiveEstReduction.RData")
 ```
 
-- Based on the raw data, the mean probability of diving across all hydrophones and SCCs decreased by `r round(naive[1], digits=2)` when ships were present and `r round(naive[3], digits=2)` when ships and sonar were present. 
+* Based on the raw data only, the probability of diving within a 30 min period changed by 
+    + `r round(wShips*100)`\% when ships were present compared to when ships were absent
+    + `r round(wSonar*100)`\% when ships and sonar were present compared to when only ships were present
+    + `r round(wBoth*100)`\% when ships and sonar were present compared to when neither ships nor sonar were present
 
 ```{r fig3, fig.cap="Boxplot of observed probability of diving across all hydrophones and SCCs before, during Phase A, and during Phase B of SCCs.", out.width='60%', fig.align='center'}
 include_graphics("./Figures/PDiveBoxplot.png")
