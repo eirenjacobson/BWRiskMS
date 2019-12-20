@@ -1,0 +1,45 @@
+# 3 Results
+
+Data were collected before and during six SCCs; two each in in 2013, 2014, and 2017 (Table 1).  The number of hydrophones for which recordings were available varied from 49 to 61.  A total of `r nrow(rlData)` 30-min observations were made. 
+
+```{r tab1}
+
+load("../Data/summaryTable.RData")
+
+kable(table, caption="No. of hydrophones used and number of observations made (no. 30-min periods) for each SCC before the exercise began, when Naval activity was present, and when Naval activity and MFA sonar were present.")
+
+```
+
+The exact timing of activities during these exercises varied (Fig. 2).  For most SCCs, pre-activity data were available immediately preceding the onset of Naval training activity; however, in February 2013 the only available pre-activity data were collected more than a month prior to the onset of Naval training activity.  In some SCCs, weekends or other breaks in training resulted in absence of Naval ships on the range during the days preceding MFA sonar use.  MFA sonar was used for 3-4 days during each training event. 
+
+```{r fig2, fig.cap="Timeseries of six recorded Naval training activities at PMRF.  The timeseries are aligned relative to the first day that MFA sonar (red triangles) was used in each exercise (x-axis).  Days with white background indicate days for which recordings and data were available.  Gray bars indicate the proportion of 30-min periods on each day, across all hydrophones, when GVPs were detected.  Black dots indicate days when Naval activity was present on the range.", out.width = '75%', fig.align='center'}
+include_graphics("../Figures/Timeseries.pdf")
+```
+
+Across all SCCs, hydrophones, and conditions, a total of `r sum(rlData$DivePresent)` GVPs were identified.  The average probability of a GVP in the dataset was therefore `r round(sum(rlData$DivePresent)/nrow(rlData), digits = 2)*100`\%. The spatial distribution of GVPs differed during the pre-activity phases of SCCs (Fig. SX; top panel).
+
+Modelled maximum received levels ranged from `r round(range(sonar$MaxRL[which(sonar$MaxRL>0)])[1])` to `r round(range(sonar$MaxRL[which(sonar$MaxRL>0)])[2])` dB re. 1 $\mu$ Pa, with a median value when MFA sonar was present of `r round(median(sonar$MaxRL[which(sonar$MaxRL>0)]))` dB re. 1 $\mu$ Pa. The intensity and spatial distribution of MFA received levels varied across the range and across SCCs (Fig. SX). 
+
+```{r}
+load("../Data/naiveEstReduction.RData")
+```
+
+Based on the observed data, the probability of a GVP within a 30-min period changed by `r round(naive[1]*100)`\% when Naval activity was present compared to when Naval activity was absent, by `r round(naive[2]*100)`\% when Naval activity and MFA sonar were present compared to when only ships were present, and by `r round(naive[3]*100)`\% when Naval activity and MFA sonar were present compared to when neither ships nor sonar were present (Fig. S2). 
+
+## 3.2 Results of spatial modelling
+
+- Tesselation (Fig. S1), note the gaps in Aug17 due to missing string
+
+- M1 (relationship between gvps and depth, fig.; also spatial fig.)
+
+- M2 (intercept value)
+
+- M3 (spline on MaxRL, could reinstate 3-panel figure with dots or line for each HP?)
+
+```{r fig5, eval=FALSE, fig.cap="Map of predicted probability of diving at each hydrophone before, during Phase A, and during Phase B of each SCC.", out.width='90%', fig.align='center'}
+include_graphics("../Figures/SpatialComparisonPExp.pdf")
+```
+
+- Uncertainty prop
+
+- Total change

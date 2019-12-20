@@ -1,0 +1,36 @@
+# 1 Introduction
+
+Beaked whales (family Ziphiidae) are a group of deep-diving cetaceans that rely on sound to forage, navigate, and communicate [@macleod_review_2006; @johnson_beaked_2004; @aguilar_de_soto_no_2012].  Multiple mass strandings of beaked whales have been associated with high-intensity anthropogenic sound sources.  These acute events have motivated research into whether and how beaked whales respond to different types and intensities of anthropogenic noise [@cox_understanding_2006].
+
+These studies have focused on two species (Cuvier's and Blainville's) and two methods (tags and cabled arrays) and two stimulus types (sonar and ship noise)
+
+Anthropogenic sound can disrupt the patterned dive cycles of these animals [CITE e.g. Falcone, also Southall re syncrhronicity?], potentially leading to death [CITE Jepson] or to cumulative sublethal impacts [PCoD, CITE].
+
+- sonar is the worst
+
+[@tyack_beaked_2011]
+
+- but other things also have impacts
+
+[@aguilar_soto_does_2006]
+
+[@pirotta_vessel_2012]
+
+- There are different ways of quantifying how bad it is
+
+[@moretti_risk_2014]
+
+[@mccarthy_changes_2011]
+
+[@tyack_using_2019]
+
+- we wanted to look at combined effects of naval training activity + MFA sonar
+
+ cite some things on additive effects? spatial modelling?
+
+- we used a spatially referenced dataset of Blainville's beaked whales from PMRF
+
+[@henderson_occurrence_2016]
+
+[@manzano-roth_impacts_2016]
+

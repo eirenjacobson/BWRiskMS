@@ -1,0 +1,15 @@
+# Appendix A: Supplementary Tables and Figures
+
+```{r figS1, out.width='100%'}
+
+include_graphics("../Figures/SCCTesselations.pdf")
+
+```
+
+```{r figs2, fig.cap="Boxplot of observed probability of diving across all hydrophones and SCCs before, when Naval activity was present, and when MFA sonar was present.", out.width='60%', fig.align='center'}
+include_graphics("../Figures/PDiveBoxplot.pdf")
+```
+
+```{r figS3, fig.cap="Map of observed probability of diving at each hydrophone before, during Phase A, and during Phase B of each SCC.  Note that values of PDive are not corrected for effort (size of the hydrophone tile).", out.width='90%', fig.align='center'}
+include_graphics("../Figures/SpatialComparisonPDive.pdf")
+```

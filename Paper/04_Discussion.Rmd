@@ -1,0 +1,10 @@
+
+# 4 Discussion
+
+- Describe why we didn't use a single giant GAM -- didn't want contamination of the baseline period by the spatial distribution of sonar, would lead to underestimates of the impact of sonar. Could present the single giant GAM in an appendix.
+
+- Discuss unusual timeline of Feb13
+
+- Discuss what "Naval activity" could mean
+
+- GVPs appear to decrease over the course of MFA sonar; this is something we could investigate with a spatio-temporal model in teh future (hour since onset of MFA?  SEL?)

@@ -1,0 +1,93 @@
+---
+bibliography: bwrisk.bib
+csl: marine-mammal-science.csl
+fontsize: 12pt
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{mathtools}
+- \usepackage{verbatim}
+- \usepackage{setspace}
+- \usepackage{lineno}
+- \linenumbers
+output:
+  pdf_document:
+        fig_caption: yes
+  word_document: 
+    reference_docx: template_mms.docx
+mainfont: Times New Roman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyr)
+library(dplyr)
+library(knitr)
+
+load("../Data/rlDataN.RData")
+rlData <- rlDataN
+
+baseline <- filter(rlData, Period=="00") 
+ships <- filter(rlData, Period=="02")
+sonar <- filter(rlData, Period == "12")
+```
+
+\begin{center}
+
+\Large{
+\textbf{
+\uppercase{Quantifying the response of Blainville's beaked whales to U.S. Naval sonar exercises in Hawaii}}}
+
+
+\normalsize
+\hfill\break  
+\textbf{Eiren K. Jacobson\textsuperscript{1}*, E. Elizabeth Henderson\textsuperscript{2}, Cornelia S. Oedekoven\textsuperscript{1}, David L. Miller\textsuperscript{1}, Stephanie L. Watwood\textsuperscript{3}, David J. Moretti\textsuperscript{3}, Len Thomas\textsuperscript{1}}
+  
+\small
+\textsuperscript{1} \textit{Centre for Research into Ecological and Environmental Modelling, University of St Andrews, St Andrews, Scotland, UK}  
+
+\textsuperscript{2} \textit{Naval Information Warfare Center Pacific, San Diego, CA, USA}  
+
+\textsuperscript{3} \textit{Naval Undersea Warfare Center, Newport, RI, USA}  
+
+\*\* Corresponding author (email: eiren.jacobson@st-andrews.ac.uk) 
+
+\normalsize
+\hfill\break   
+\textbf{Draft `r format(Sys.time(), "%d %B %Y")`}
+\end{center}
+
+------
+
+## Abstract
+
+Naval use of mid-frequency active (MFA) sonar has been associated with injury and death of multiple species of marine mammals.  Deep-diving beaked whales (family Ziphiidae) are particularly susceptible to naval sonar.  The US Navy operates multiple training and testing facilities where MFA sonar is used regularly, and where cumulative sublethal impacts of exposure to MFA sonar could have negative effects on beaked whale populations.  Our goal was to quantify the response of Blainville's beaked whales \textit{(Mesoplodon densirostris)} to sonar on the Pacific Missile Range Facility (PMRF) in Hawaii.  One indicator of a behavioral response to MFA sonar is reduced foraging activity.  In the present study, we use data on Blainville's beaked whale foraging activity collected at bottom-mounted hydrophones before and during six Naval sonar exercises. 
+
+------
+
+
+```{r child = '01_Intro.Rmd'}
+```
+
+```{r child = '02_Methods.Rmd'}
+```
+
+```{r child = '03_Results.Rmd'}
+```
+
+```{r child = '04_Discussion.Rmd'}
+```
+
+# References
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+\noindent
+
+<div id="refs"></div>
+
+\newpage
+
+```{r child = '05_AppendixA.Rmd'}
+```
