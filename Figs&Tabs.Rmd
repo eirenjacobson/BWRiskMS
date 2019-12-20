@@ -72,7 +72,7 @@ table <-
 
 table <- table[,c(1,5,2,3,4)]
 
-names(table) <- c("SCC", "HPs", "Pre-Exercise", "Phase A", "Phase B")
+names(table) <- c("SCC", "HPs", "Pre-Activity", "Nav. Activity", "MFA Sonar")
 
 save(table, file="./Data/summaryTable.RData")
 
@@ -91,12 +91,12 @@ ggplot(rlDataSummary)+
   geom_col(aes(x=dayCount, y = max(rlDataSummary$Dives)), fill="white", width=1)+
   geom_col(aes(x=dayCount, y=Dives))+
   geom_point(data=ships, aes(x=dayCount, y=max(rlDataSummary$Dives)))+
-  ylab("Percent of half hour periods with dives present")+
+  ylab("Proportion of 30-min periods with GVPs present")+
   xlab("")+
   geom_point(aes(x=dayCount, y=Sonar-1), col="red", shape=17, size=3)+
   facet_wrap(~SCC, nrow=length(unique(rlData$SCC)))+
 #  scale_x_date(date_breaks="3 days", date_labels="%d %b %y")+
-  xlab("Day relative to first day of Phase A")+
+  xlab("Day relative to first day of MFA sonar")+
   scale_y_continuous(limits=c(0, max(rlDataSummary$Dives)))+
   theme_bw()+
   theme(panel.grid = element_blank(), panel.background = element_rect(fill="gray90"))

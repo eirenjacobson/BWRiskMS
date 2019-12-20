@@ -1,5 +1,4 @@
 ---
-title: Quantifying the response of Blainville's beaked whales to U.S. Naval sonar exercises in Hawaii
 bibliography: bwrisk.bib
 csl: marine-mammal-science.csl
 fontsize: 12pt
@@ -8,7 +7,6 @@ header-includes:
 - \usepackage{mathtools}
 - \usepackage{verbatim}
 - \usepackage{setspace}
-- \onehalfspacing
 - \usepackage{lineno}
 - \linenumbers
 output:
@@ -30,69 +28,75 @@ load("./Data/rlDataN.RData")
 rlData <- rlDataN
 ```
 
-\flushleft
+\begin{center}
+
+\Large{
+\textbf{
+\uppercase{Quantifying the response of Blainville's beaked whales to U.S. Naval sonar exercises in Hawaii}}}
+
+
 \normalsize
 \hfill\break  
-Eiren K. Jacobson\textsuperscript{1}*, E. Elizabeth Henderson\textsuperscript{2}, Cornelia S. Oedekoven\textsuperscript{1}, David L. Miller\textsuperscript{1}, Stephanie L. Watwood\textsuperscript{3}, David J. Moretti\textsuperscript{3}, Len Thomas\textsuperscript{1}
+\textbf{Eiren K. Jacobson\textsuperscript{1}*, E. Elizabeth Henderson\textsuperscript{2}, Cornelia S. Oedekoven\textsuperscript{1}, David L. Miller\textsuperscript{1}, Stephanie L. Watwood\textsuperscript{3}, David J. Moretti\textsuperscript{3}, Len Thomas\textsuperscript{1}}
   
-\scriptsize
-\textsuperscript{1} Centre for Research into Ecological and Environmental Modelling, University of St Andrews, St Andrews, Scotland, UK
-\textsuperscript{2} Naval Information Warfare Center Pacific, San Diego, CA, USA 
-\textsuperscript{3} Naval Undersea Warfare Center, Newport, RI, USA  
-\*\* Corresponding author (email: eiren.jacobson@st-andrews.ac.uk)
+\small
+\textsuperscript{1} \textit{Centre for Research into Ecological and Environmental Modelling, University of St Andrews, St Andrews, Scotland, UK}  
+
+\textsuperscript{2} \textit{Naval Information Warfare Center Pacific, San Diego, CA, USA}  
+
+\textsuperscript{3} \textit{Naval Undersea Warfare Center, Newport, RI, USA}  
+
+\*\* Corresponding author (email: eiren.jacobson@st-andrews.ac.uk) 
+
 \normalsize
 \hfill\break   
-\begin{center}
 \textbf{Draft `r format(Sys.time(), "%d %B %Y")`}
 \end{center}
-\hfill\break   
+
+------
 
 ## Abstract
 
-Naval use of mid-frequency active (MFA) sonar has been associated with injury and death of multiple species of marine mammals.  Deep-diving beaked whales (family Ziphiidae) are particularly susceptible to naval sonar.  The US Navy operates multiple training and testing facilities where MFA sonar is used regularly, and where cumulative sublethal impacts of exposure to MFA sonar could have negative effects on beaked whale populations.  The goal of this project is to quantify the response of Blainville's beaked whales \textit{(Mesoplodon densirostris)} to sonar on the Pacific Missile Range Facility (PMRF) in Hawaii.  One indicator of a behavioral response to MFA sonar is reduced foraging activity.  In the present study, we use data on Blainville's beaked whale foraging activity collected at bottom-mounted hydrophones before and during six Naval sonar exercises.  
+Naval use of mid-frequency active (MFA) sonar has been associated with injury and death of multiple species of marine mammals.  Deep-diving beaked whales (family Ziphiidae) are particularly susceptible to naval sonar.  The US Navy operates multiple training and testing facilities where MFA sonar is used regularly, and where cumulative sublethal impacts of exposure to MFA sonar could have negative effects on beaked whale populations.  Our goal was to quantify the response of Blainville's beaked whales \textit{(Mesoplodon densirostris)} to sonar on the Pacific Missile Range Facility (PMRF) in Hawaii.  One indicator of a behavioral response to MFA sonar is reduced foraging activity.  In the present study, we use data on Blainville's beaked whale foraging activity collected at bottom-mounted hydrophones before and during six Naval sonar exercises.  
 
-We fit multiple generalized additive models to dive count data collected before and during each exercise using different combinations of covariates and used the best-fitting model to compare the expected baseline dive counts to dive counts observed during the sonar exercises.  
 
-We found that the average probability of a dive start decreased by half when Navy ships were present on the range and 75% when MFA sonar was active as compared to the pre-exercise baseline levels.  
-
-This suggests that animals are responding to Naval activity other than MFA sonar, potentially because they are habituated to the combination of Naval ship activity and MFA sonar. 
-
-In future, we will expand this analysis to include other US Navy ranges where MFA sonar exercises are conducted.
+------
 
 # 1 Introduction
 
 Beaked whales (family Ziphiidae) are a group of deep-diving cetaceans that rely on sound to forage, navigate, and communicate [@macleod_review_2006; @johnson_beaked_2004; @aguilar_de_soto_no_2012].  Multiple mass strandings of beaked whales have been associated with high-intensity anthropogenic sound sources.  These acute events have motivated research into whether and how beaked whales respond to different types and intensities of anthropogenic noise [@cox_understanding_2006].
 
-
 These studies have focused on two species (Cuvier's and Blainville's) and two methods (tags and cabled arrays) and two stimulus types (sonar and ship noise)
 
 Anthropogenic sound can disrupt the patterned dive cycles of these animals [CITE e.g. Falcone, also Southall re syncrhronicity?], potentially leading to death [CITE Jepson] or to cumulative sublethal impacts [PCoD, CITE].
 
-- sonar is worst
+- sonar is the worst
 
 [@tyack_beaked_2011]
 
 - but other things also have impacts
 
-[@pirotta_vessel_2012]
-
 [@aguilar_soto_does_2006]
 
-[@manzano-roth_impacts_2016]
+[@pirotta_vessel_2012]
 
 - There are different ways of quantifying how bad it is
 
 [@moretti_risk_2014]
+
 [@mccarthy_changes_2011]
+
 [@tyack_using_2019]
 
 - we wanted to look at combined effects of naval training activity + MFA sonar
 
  cite some things on additive effects? spatial modelling?
 
-- spatially referenced dataset of Blainville's beaked whales from PMRF
+- we used a spatially referenced dataset of Blainville's beaked whales from PMRF
 
 [@henderson_occurrence_2016]
+
+[@manzano-roth_impacts_2016]
 
 
 # 2 Methods
@@ -101,35 +105,29 @@ Anthropogenic sound can disrupt the patterned dive cycles of these animals [CITE
 
 The Pacific Missile Range Facility (PMRF) is an instrumented U.S. Naval range extending 70 km NW of the island of Kauai, Hawaii and encompassing 2,800 km^2^.  The range includes a cabled hydrophone array (Fig. 1) with hydrophones at depths ranging from approximately 650 m to 4,700 m. HYDROPHONE SPECS HERE. Up to 64 of the range hydrophones can be recorded simultaneously by the Naval Information Warfare Center (NIWC).  Data are digitized at a rate of XXX samples/sec. DETAILS OF BEAKED WHALE DETECTION ALGORITHM HERE.  An automated routine (CITE) is used to group detections of individual beaked whale echolocation clicks into Group Vocal Periods (GVPs).  If a group of whales is detected by more than one hydrophone, the GVP is assigned to the hydrophone that recorded the most clicks.  The data are then aggregated to indicate presence or absence of beaked whale group(s) for each hydrophone within each half-hour period.  In the present study, we used data collected before and during Submarine Commander Courses (SCCs) at the PMRF.  SCCs occur biannually in February and August.  SCCs typically last X days, and NIWC records for a minimum of 2 days before each SCC. 
 
-```{r fig1, fig.cap="Map of approximate locations of hydrophones (red points) at the Pacific Missile Range Facility. Inset map shows range location relative to the Main Hawaiian Islands.", out.width='50%', fig.align='center'}
+```{r fig1, fig.cap="Map of approximate locations of hydrophones (red points) at the Pacific Missile Range Facility. Inset map shows range location relative to the Main Hawaiian Islands.", out.width='75%', fig.align='center'}
 include_graphics("./Figures/Map.pdf")
 ```
 
-## Modelling received levels of hull-mounted mid-frequency active sonar
+## 2.2 Modelling received levels of hull-mounted mid-frequency active sonar
 
 NIWC receives logs of all ship and other activity that occurs on the range during each SCC. The ship logs indicate the locations of the ships during the training periods and also indicate the start and stop times of each individual training event, but no information is provided on the start and stop of sonar use. NIWC uses sonar detections within the acoustic data to determine periods of active sonar.  Using the logs, the locations of all ships are noted for each half-hour period and the closest ship to each hydrophone is determined.  Propagation modelling is used to calculate the expected received level of hull-mounted mid-frequency active sonar at each hydrophone from the closest ship during each half-hour period of each SCC. The propagation modelling is done within the program Peregrine (CITE), which uses a parabolic equation to estimate the transmission loss between the ship and the hydrophone, which is converted to a received level at the hydrophone based on the source level of the sonar.  Transmission loss is estimated using a 200 Hz band around the center frequency of the sonar type (here, 35 kHz).  Transmission loss is estimated at depth; for hydrophones shallower than 1000 m the received level is estimated at a point 20 m above the sea floor, while for hydrophones deeper than 1000 m the received level is estimated at 1000 m depth.  The maximum received level was determined for each hydrophone and half-hour period and aggregated with the data on beaked whale group detections. Uncertainty in the modelled received level was not considered.
 
-## Spatial Modelling
+## 2.3 Spatial Modelling
 
 Modelling methods are described in detail in the following sections.  Briefly, we first used a tesselation to determine the area effectively monitored by each hydrophone.  Then, we used pre-activity data to create a spatial model of the probability of GVPs prior to the onset of Naval activity.  We used the predicted values from this model as an offset in a model created using data from when Naval activity was present on the range, but MFA sonar was not.  Again, we used the predicted values from this model as an offset in a model created using data when Naval activity and MFA sonar were present on the range.  Finally, we used posterior simulation to calculate confidence intervals and quantified the change in the probability of GVPs when Naval activity was present and across received levels of MFA sonar.
 
-### Determining hydrophone effort
+### 2.3.1 Determining hydrophone effort
 
 For security reasons, randomly "jittered" locations and depths of hydrophones at PMRF were used.  The hydrophone locations were jittered by up to XX m and depths were jittered by up to XX m.  We projected the coordinates of each hydrophone into Universal Transverse Mercator Zone 4. 
 
-Because the beaked whale detection algorithm assigns groups of whales to the hydrophone that recorded the most echolocation clicks, and because the spatial separation of the hydrophones is not uniform, effort is not the same for all hydrophones.  To determine the area effectively monitored by each hydrophone, we used a Voronoi tesselation implemented in the R package deldir (CITE) to define a tile for each hydrophone that contained all points on the range that were closest to that hydrophone (Fig. S1).  The area of each tile corresponds to the effective area monitored.  We assume that beaked whale groups occur within the tesselation tile of the hydrophone to which the GVP is assigned.  For hydrophones on the outside of the range, i.e., not surrounded by other hydrophones, we used a cutoff radius of 6500 m to bound the tesselation tile.  This distance is based on the maximum detection distance of individual Blainville's beaked whale clicks at a U.S. Naval range in the Bahamas (CITE). Different combinations of hydrophones were used during different SCCs, so separate tesselations were created for each SCC.
+Because the beaked whale detection algorithm assigns groups of whales to the hydrophone that recorded the most echolocation clicks, and because the spatial separation of the hydrophones is not uniform, effort is not the same for all hydrophones.  To determine the area effectively monitored by each hydrophone, we used a Voronoi tesselation implemented in the \textsf{R} [@r_core_team_r:_2018] package \texttt{deldir} [@turner_deldir:_2019] to define a tile for each hydrophone that contained all points on the range that were closest to that hydrophone.  The area of each tile corresponds to the effective area monitored.  We assume that beaked whale groups occur within the tesselation tile of the hydrophone to which the GVP is assigned.  For hydrophones on the outside of the range, i.e., not surrounded by other hydrophones, we used a cutoff radius of 6500 m to bound the tesselation tile.  This distance is based on the maximum detection distance of individual Blainville's beaked whale clicks at a U.S. Naval range in the Bahamas [@marques_estimating_2009]. Different combinations of hydrophones were used during different SCCs, so separate tesselations were created for each SCC.
 
-### \texttt{M1}: Modelling the pre-activity probability of dive detection
+### 2.3.2 M1: Modelling the pre-activity probability of dive detection
 
 We used data collected prior to SCCs, when no Naval ships were present on the range and no other Naval activity was known to occur, to determine the baseline probability of GVPs at each hydrophone.  The exact locations of beaked whale groups is not known; rather, detections of beaked whale groups are "snapped" to hydrophone locations depending on which hydrophone detected the most echolocation clicks.  Therefore, the data are not continuous in space.  To account for this, we used a Markov random field to model the spatial distribution of GVPs.  A Markov random field [@rue_gaussian_2005] is a method for modelling correlation in space between discrete spatial units. Each unit is correlated more strongly with its neighbours (those units which touch) than those that are more hops away. This gives a graph-like structure, where ``number of hops'' is the distance used to calculate relatedness, rather than geographical distance. This is appropriate for our data as we do not know where in each tile a given GVP occurs, but we assume that it does occur in that tile.
 
-The R [CITEX] package \texttt{mgcv} [CITEX] was used to formulate the model on the tesselation described in the previous section. The linear predictor for the model was:
-%m1 <- gam(DivePresent ~ 
-%          s(ID, bs="mrf", xt=list(nb=nb)) +
-%          s(Depth, bs="ts") +
-%          offset(logArea),
-%          family = binomial, data=baseline, 
-%          method="REML", control=ctrl)
+The R package \texttt{mgcv} [@wood_generalized_2017] was used to formulate the model on the tesselation described in the previous section. The linear predictor for the model was:
 \begin{equation}
     \text{logit}\left(\mu_{\texttt{M1},i}\right) = \beta_{\texttt{M1},0} +  f(\texttt{MRF}_i) + f(\texttt{Depth}_i) + \log_e A_i, \qquad (\texttt{M1})
 \end{equation}
@@ -137,31 +135,27 @@ where $\texttt{DivePresent}_i \sim \text{Bin}(1, _{\texttt{M1},i})$. The spatial
 
 NOTE: f(MRF) could be indexed by SCC to indicate that the smooth function is different for each.
 
-### \texttt{M2}: Modelling the effect of Naval activity
+### 2.3.3 M2: Modelling the effect of Naval activity
 
-For a few days prior to the onset of hull-mounted MFA sonar used during SCCs, Naval training activities occur at the PMRF.  Ships are present on the range during this period.  We used data collected when ships were present on the range, but hull-mounted MFA sonar was not used, to model the effect of general Naval activity on beaked whale GVPs.  Initially, we tried to use low-frequency noise levels measured on range hydrophones as a covariate in this model, but found that the measured noise levels were not consistent with known locations of Naval training activities (see Appendix B for details).  Therefore, we used an intercept-only model. 
+For a few days prior to the onset of hull-mounted MFA sonar used during SCCs, Naval training activities occur at the PMRF.  Ships are present on the range during this period and other noise sources, including live-fire and submarines, may be present.  We used data collected when ships were present on the range, but hull-mounted MFA sonar was not used, to model the effect of general Naval activity on beaked whale GVPs.  Initially, we tried to use low-frequency noise levels measured on range hydrophones as a covariate in this model, but found that the measured noise levels were not consistent with known locations of Naval training activities (see Appendix B for details).  
 
-We used the predicted baseline probability of a GVP from Model 1 as an offset to control for the underlying spatial distribution of GVPs.
-
-The model for the data when ships were present was intercept-only, with an offset derived from \texttt{M1}. This model was simply:
-
+We used the predicted baseline probability of a GVP from Model 1 as an offset to control for the underlying spatial distribution of GVPs.  The model for the data when ships were present was intercept-only, with an offset derived from \texttt{M1}. This model was simply:
 \begin{equation}
     \text{logit}\left(\mu_{\texttt{M2},i}\right) = \beta_{\texttt{M2},0} + \log_e \xi_{\texttt{M1}, i}, \qquad (\texttt{M2})
 \end{equation}
 where $\texttt{DivePresent}_i \sim \text{Bin}(1, \mu_{\texttt{M2},i})$. $\xi_{\texttt{M1}, i}$ denotes the prediction (on the $\text{logit}$ scale) for tile $i$ using model $\texttt{M1}$. This was again modelled in the R package \texttt{mgcv}.
 
-### \texttt{M3}: Modelling the effect of hull-mounted MFA sonar
+### 2.3.4 M3: Modelling the effect of hull-mounted MFA sonar
 
-We used data collected when hull-mounted MFA sonar was present on the range to model the effect of sonar on beaked whales. The probability of a dive when sonar was present was modelled a function of the maximum received level (recorded at each hydrophone; see section XXX). We assumed that as the maximum received level increased, the probability of dives decreased and modelled this using a shape constrained smooth to ensure the relationship held. To ensure that the model predictions were the same at a maximum received level of 0 dB and when ships were not present, we did not include an intercept. This model was written as:
-
+We used data collected when hull-mounted MFA sonar was present on the range to model the effect of sonar on beaked whales. The probability of a dive when sonar was present was modelled as a function of the maximum received level (modelled at each hydrophone; see section 2.2). We assumed that as the maximum received level increased, the probability of dives decreased and modelled this using a shape constrained smooth so that the relationship held for all possible realizations of the smooth. To ensure that the model predictions were the same at a maximum received level of 0 dB and when ships were not present, we did not include an intercept. This model was written as:
 \begin{equation}
     \text{logit}\left(\mu_{\texttt{M3},i}\right) = f(\texttt{MaxRL}_i) + \log_e \xi_{\texttt{M2}, i}, \qquad (\texttt{M3})
 \end{equation}
 where $\texttt{DivePresent}_i \sim \text{Bin}(1, \mu_{\texttt{M3},i})$. $f(\texttt{MaxRL}_i)$ was modelled as a monotonic smooth using the R package \texttt{scam} [pya_shape_2015]. $\xi_{\texttt{M2}, i}$ denotes the prediction (on the $\text{logit}$ scale) for tile $i$ when Naval training activites were present on the range using model $\texttt{M2}$. The model did not include an intercept.
 
-### Uncertainty propagation
+### 2.3.5 Uncertainty propagation
 
-We used posterior simulation to propagate uncertainty through M1, M2, and M3. Each model was fitted via restricted maximum likelihood [REML; @wood_fast_2008], so the results are empirical Bayes estimates. In this case we can generate samples from the (multivariate normal) posterior of the model parameters. After generating a sample, $\boldsymbol{\beta}^* \sim \text{MVN}(\hat{\boldsymbol{\beta}}, \textbf{V}_{\boldsymbol{\beta}})$, we can use the matrix that maps the model parameters to the predictions on the linear predictor scale (often referred to as the $\mathbf{L}_p$ matrix or $\mathbf{X}_p$ matrix; [wood_generalized_2017], section 7.2.6), along with the inverse link function to generate predictions for each posterior sample. Here the $\boldsymbol{\beta}$ for each model includes the coefficients for the smooth terms in the model and fixed effects (e.g., intercept) if present. Predictions, $\boldsymbol{\mu}^*$, can be written as:
+We used posterior simulation to propagate uncertainty through M1, M2, and M3. Each model was fitted via restricted maximum likelihood [REML; @wood_fast_2008], so the results are empirical Bayes estimates. In this case we can generate samples from the (multivariate normal) posterior of the model parameters. After generating a sample, $\boldsymbol{\beta}^* \sim \text{MVN}(\hat{\boldsymbol{\beta}}, \textbf{V}_{\boldsymbol{\beta}})$, we can use the matrix that maps the model parameters to the predictions on the linear predictor scale (often referred to as the $\mathbf{L}_p$ matrix or $\mathbf{X}_p$ matrix; [@wood_generalized_2017], section 7.2.6), along with the inverse link function to generate predictions for each posterior sample. Here the $\boldsymbol{\beta}$ for each model includes the coefficients for the smooth terms in the model and fixed effects (e.g., intercept) if present. Predictions, $\boldsymbol{\mu}^*$, can be written as:
 \begin{equation}
     \boldsymbol{\mu}^* = g^{-1}(\eta^*) = g^{-1}(\mathbf{X}_p\boldsymbol{\beta}^*+\boldsymbol{\xi}),
 \end{equation}
@@ -181,7 +175,7 @@ An algorithm for calculating the variance from our multi-stage approach is as fo
 \end{enumerate}
 We can then calculate summary statistics (means and variances) of the $N_b$ values of $\boldsymbol{\mu}_{\texttt{M1}^\prime}$, $\boldsymbol{\mu}_{\texttt{M2}^\prime}$, and $\boldsymbol{\mu}_{\texttt{M3}^\prime}$ we have generated. The empirical variance of the $N_b$ values of $\boldsymbol{\mu}_{\texttt{M3}^\prime}$ will give the uncertainty, incorporating components from all three models. We can take appropriate quantiles to form confidence intervals for the functional relationships between [TKTKTK noisey boi] and [TKTKTK whaley boi].
 
-\section{Quantifying change in probability of GVPs}
+### 2.3.6 Quantifying the change in probability of GVPs
 
 Finally, we calculated the expected change in the probability of GVPs relative to either the distribution of GVPs when no general Naval training activity was present and no MFA sonar was present ($\Delta_{M3':M1'}$), or relative to the distribution of GVPs general Naval training activity was present but no MFA sonar was present ($\Delta_{M3':M2'}$).
 
@@ -196,55 +190,53 @@ for each $\texttt{M1}^\prime$, $\texttt{M2}^\prime$, and $\texttt{M3}^\prime$.  
 \end{align}
 For each received level we calcualted the 2.5th, 50th, and 97.5th quantiles of $\Delta_{M3':M1'}$ and $\Delta_{M3':M2'}$ to create 95\% CIs of change in $\mathbb{P}(\text{GVP})$ across possible received levels.  We consider that the probability of disturbance is equal to 1 wherever the 95\% CI does not include 0, and 0 otherwise.
 
+# 3 Results
 
-
-# Results
-
-We used data from six SCCs; two each in in 2013, 2014, and 2017 (Table 1). 
+Data were collected before and during six SCCs; two each in in 2013, 2014, and 2017 (Table 1). A total of `r nrow(rlData)` 30-min observations were made. 
 
 ```{r tab1}
 
 load("./Data/summaryTable.RData")
 
-kable(table, caption="No. of hydrophones used and number of observations made (no. 30 min periods) for each SCC before the exercise began, during Phase A, and during Phase B.")
+kable(table, caption="No. of hydrophones used and number of observations made (no. 30-min periods) for each SCC before the exercise began, when Naval activity was present, and when Naval activity and MFA sonar were present.")
 
 ```
 
-```{r fig2, fig.cap="A caption", out.width = '75%', fig.align='center'}
+The exact timing of activities during these exercises varied (Fig. 2).
+
+```{r fig2, fig.cap="Timeseries of six recorded Naval training activities at PMRF.  The timeseries are aligned relative to the first day that MFA sonar (red triangles) was used in each exercise (x-axis).  Days with white background indicate days for which recordings and data were available.  Gray bars indicate the proportion of 30-min periods on each day, across all hydrophones, when GVPs were detected.  Black dots indicate days when Naval activity was present on the range.", out.width = '75%', fig.align='center'}
 include_graphics("./Figures/Timeseries.pdf")
 ```
+
+- Some details here about what happened with GVP detections
+
+- Some details here about what happened with the modelled received levels
 
 ```{r}
 load("./Data/naiveEstReduction.RData")
 ```
 
-* Based on the raw data only, the probability of diving within a 30 min period changed by 
-    + `r round(naive[1]*100)`\% when ships were present compared to when ships were absent
-    + `r round(naive[2]*100)`\% when ships and sonar were present compared to when only ships were present
-    + `r round(naive[3]*100)`\% when ships and sonar were present compared to when neither ships nor sonar were present
+Based on the observed data, the probability of diving within a 30 min period changed by `r round(naive[1]*100)`\% when Naval activity was present compared to when Naval activity was absent, by `r round(naive[2]*100)`\% when Naval activity and MFA sonar were present compared to when only ships were present, and by `r round(naive[3]*100)`\% when Naval activity and MFA sonar were present compared to when neither ships nor sonar were present (Fig. S2). 
 
-```{r fig3, fig.cap="Boxplot of observed probability of diving across all hydrophones and SCCs before, during Phase A, and during Phase B of SCCs.", out.width='60%', fig.align='center'}
-include_graphics("./Figures/PDiveBoxplot.pdf")
-```
+## 3.2 Results of spatial modelling
 
-```{r fig4, fig.cap="Map of observed probability of diving at each hydrophone before, during Phase A, and during Phase B of each SCC.  Note that values of PDive are not corrected for effort (size of the hydrophone tile).", out.width='90%', fig.align='center'}
-include_graphics("./Figures/SpatialComparisonPDive.pdf")
-```
+- Tesselation (Fig. S1)
 
-- The full model predicts an average probability of disturbance of 46% when "ships" are present and 78% to 86% when sonar is present.
+- M1 (relationship between gvps and depth, fig. )
+
+- M2 (intercept value)
+
+- M3 ()
 
 ```{r fig5, eval=FALSE, fig.cap="Map of predicted probability of diving at each hydrophone before, during Phase A, and during Phase B of each SCC.", out.width='90%', fig.align='center'}
 include_graphics("./Figures/SpatialComparisonPExp.pdf")
 ```
 
-```{r fig6, eval=FALSE, fig.cap="Predicted probability of diving before, during Phase A, and during Phase B for all hydrophones and SCCs",, out.width='70%', fig.align='center'}
+- Uncertainty prop
 
-include_graphics("./Figures/predDive.pdf")
+- Total change
 
-```
-
-
-# Discussion
+# 4 Discussion
 
 - Describe why we didn't use a single giant GAM -- didn't want contamination of the baseline period by the spatial distribution of sonar, would lead to underestimates of the impact of sonar. Could present the single giant GAM in an appendix.
 
@@ -258,10 +250,19 @@ include_graphics("./Figures/predDive.pdf")
 <div id="refs"></div>
 
 \newpage
+
 ## Appendix A: Supplementary Tables and Figures
 
-```{r figs1, out.width='100%'}
+```{r figS1, out.width='100%'}
 
 include_graphics("./Figures/SCCTesselations.pdf")
 
+```
+
+```{r figs2, fig.cap="Boxplot of observed probability of diving across all hydrophones and SCCs before, when Naval activity was present, and when MFA sonar was present.", out.width='60%', fig.align='center'}
+include_graphics("./Figures/PDiveBoxplot.pdf")
+```
+
+```{r figS3, fig.cap="Map of observed probability of diving at each hydrophone before, during Phase A, and during Phase B of each SCC.  Note that values of PDive are not corrected for effort (size of the hydrophone tile).", out.width='90%', fig.align='center'}
+include_graphics("./Figures/SpatialComparisonPDive.pdf")
 ```
