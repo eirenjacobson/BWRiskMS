@@ -130,7 +130,7 @@ Effort$HPPolygons$SCC <- factor(Effort$HPPolygons$SCC, ordered=TRUE,
                   levels=c("Feb13", "Aug13", "Feb14", "Aug14", "Feb17", "Aug17"))
 
 polyDF <- left_join(Effort$HPPolygons, compareData, by = c("Phone", "SCC")) 
-polyDF$Period <- recode_factor(polyDF$Period, '00'="Baseline", '02'="Ships", "12"="Sonar")
+polyDF$Period <- recode_factor(polyDF$Period, '00'="Pre-Activity", '02'="Nav. Activity", "12"="MFA Sonar")
 
 ggplot()+
   geom_polygon(data=polyDF, aes(x=X/1000, y=Y/1000, group=Phone, fill=PDive))+
@@ -165,5 +165,9 @@ save(naive, file="./Data/naiveEstReduction.RData")
 
 ```
 
+```{r}
 
+# create supplementary figure of spatial dist of MaxRL
+
+```
 
