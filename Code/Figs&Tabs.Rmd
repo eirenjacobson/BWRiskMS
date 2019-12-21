@@ -165,9 +165,66 @@ save(naive, file="./Data/naiveEstReduction.RData")
 
 ```
 
+
+```{r}
+library(mgcv)
+load("../Data/m1baselineMRF.RData")
+library(dplyr)
+
+m1.predgrid <- distinct(baseline, ID, .keep_all=TRUE)
+
+lp1 <- predict.gam(m1, newdata=m1.predgrid, type="lpmatrix")
+
+preds <- predict.gam(m1, newdata=m1.predgrid, type="response", se.fit = TRUE)
+
+m1.predgrid$m1.pred <- preds$fit
+m1.predgrid$lci <- preds$fit - 1.96*preds$se.fit
+m1.predgrid$uci <- preds$fit + 1.96*preds$se.fit
+
+ggplot(m1.predgrid) +
+  geom_point(aes(x=Depth, y = m1.pred, color=areakm))+
+  geom_errorbar(aes(x=Depth, ymin=lci, ymax=uci, color=areakm))+
+  scale_color_viridis_c()+
+  theme_bw()
+
+ggsave(plot=last_plot(), file="../Figures/m1Depth.pdf", width=6, height=5)
+
+
+```
+
+
 ```{r}
 
-# create supplementary figure of spatial dist of MaxRL
+library(viridis)
+
+# create supplementary figure of spatial dist of avg MaxRL
+
+load("../Data/SCCEffort.RData")
+
+avgRL <- sonar %>% 
+  filter(MaxRL != 0) %>%
+  group_by(ID) %>%
+  summarize(medianRL = median(MaxRL))
+
+eff <- Effort$HPPolygons
+eff$ID <-  paste(eff$SCC, eff$Phone, sep = "_")
+  
+polyDF <- left_join(eff, avgRL, by = "ID") 
+
+depthDF <- left_join(eff, distinct(rlData[,c("Depth", "ID")]), by = "ID")
+
+ggplot()+
+  geom_polygon(data=polyDF, aes(x=X/1000, y=Y/1000, group=Phone, 
+                                fill=Depth)) +
+  scale_fill_viridis(name="MedRL")+
+  facet_grid(~SCC )+
+  coord_equal()+
+  xlab("UTM X (km)")+
+  ylab("UTM Y (km)")+
+  theme_bw()
+
+ggsave(plot=last_plot(), filename="../Figures/AllSCCMedianRL.pdf", 
+       width=8, height = 6, units="in")
 
 ```
 

@@ -13,3 +13,7 @@ include_graphics("../Figures/PDiveBoxplot.pdf")
 ```{r figS3, fig.cap="Map of observed probability of diving at each hydrophone before, during Phase A, and during Phase B of each SCC.  Note that values of PDive are not corrected for effort (size of the hydrophone tile).", out.width='90%', fig.align='center'}
 include_graphics("../Figures/SpatialComparisonPDive.pdf")
 ```
+
+```{r figS4, fig.cap="Median received level when MFA sonar was present (color scale) for all hydrophones and SCCs.", out.width='100%', fig.align='center'}
+include_graphics("../Figures/AllSCCMedianRL.pdf")
+```
