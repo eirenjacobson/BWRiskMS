@@ -50,7 +50,7 @@ We used data collected when hull-mounted MFA sonar was present on the range to m
 \begin{equation}
     \text{logit}\left(\mu_{\texttt{M3},i}\right) = f(\texttt{MaxRL}_i) + \log_e \xi_{\texttt{M2}, i}, \qquad (\texttt{M3})
 \end{equation}
-where $\texttt{DivePresent}_i \sim \text{Bin}(1, \mu_{\texttt{M3},i})$. $f(\texttt{MaxRL}_i)$ was modelled as a monotonic smooth using the R package \texttt{scam} [@pya_shape_2015]. $\xi_{\texttt{M2}, i}$ denotes the prediction (on the $\text{logit}$ scale) for tile $i$ when Naval training activites were present on the range using model $\texttt{M2}$. 
+where $\texttt{DivePresent}_i \sim \text{Bin}(1, \mu_{\texttt{M3},i})$. $f(\texttt{MaxRL}_i)$ was modelled as a monotonic decreasing smooth using the R package \texttt{scam} [@pya_shape_2015]. $\xi_{\texttt{M2}, i}$ denotes the prediction (on the $\text{logit}$ scale) for tile $i$ when Naval training activites were present on the range using model $\texttt{M2}$. 
 
 ### 2.3.5 Uncertainty propagation
 
