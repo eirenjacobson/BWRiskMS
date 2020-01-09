@@ -30,7 +30,7 @@ Based on the observed data, the probability of a GVP within a 30-min period chan
 
 We created separate tesselations for each SCC (Fig. SX).  In August 2017, data were available from fewer hydrophones, and so in some cases the tesselated tiles, with bounding radius of 6500 m, did not completely cover the range.
 
-Hydrophone depths varied from `r range(baseline$Depth)[1])` to `r range(baseline$Depth)[2]`.   The model \texttt{M1} predicted highest probability of GVPs at hydrophone depths between 1500 and 2000 m, consistent with other findings that Blainville's beaked whales prefer to forage in slope habitats [CITE].
+Hydrophone depths varied from 648 to 4716 m.   The model \texttt{M1} predicted highest probability of GVPs at hydrophone depths between 1500 and 2000 m, consistent with other findings that Blainville's beaked whales prefer to forage in slope habitats [CITE].
 
 \texttt{M2} used the predicted values from \texttt{M1} as an offset and fitted a model to data when Naval activity was ongoing, as indicated by the presence of ships. 
 

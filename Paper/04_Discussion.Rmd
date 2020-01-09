@@ -8,3 +8,5 @@
 - Discuss what "Naval activity" could mean
 
 - GVPs appear to decrease over the course of MFA sonar; this is something we could investigate with a spatio-temporal model in teh future (hour since onset of MFA?  SEL?)
+
+- Discuss dose-response and p(disturbance) in context of [@tyack_using_2019] 

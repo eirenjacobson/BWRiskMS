@@ -10,10 +10,10 @@ header-includes:
 - \usepackage{lineno}
 - \linenumbers
 output:
-  pdf_document:
-        fig_caption: yes
   word_document: 
     reference_docx: template_mms.docx
+  pdf_document:
+        fig_caption: yes
 mainfont: Times New Roman
 ---
 
