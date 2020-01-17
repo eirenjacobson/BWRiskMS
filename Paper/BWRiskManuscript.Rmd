@@ -10,10 +10,10 @@ header-includes:
 - \usepackage{lineno}
 - \linenumbers
 output:
-  word_document: 
-    reference_docx: template_mms.docx
   pdf_document:
         fig_caption: yes
+  word_document: 
+    reference_docx: template_mms.docx
 mainfont: Times New Roman
 ---
 
@@ -61,7 +61,9 @@ sonar <- filter(rlData, Period == "12")
 
 ## Abstract
 
-Naval use of mid-frequency active (MFA) sonar has been associated with injury and death of multiple species of marine mammals.  Deep-diving beaked whales (family Ziphiidae) are particularly susceptible to naval sonar.  The US Navy operates multiple training and testing facilities where MFA sonar is used regularly, and where cumulative sublethal impacts of exposure to MFA sonar could have negative effects on beaked whale populations.  Our goal was to quantify the response of Blainville's beaked whales \textit{(Mesoplodon densirostris)} to sonar on the Pacific Missile Range Facility (PMRF) in Hawaii.  One indicator of a behavioral response to MFA sonar is reduced foraging activity.  In the present study, we use data on Blainville's beaked whale foraging activity collected at bottom-mounted hydrophones before and during six Naval sonar exercises. 
+Naval use of mid-frequency active (MFA) sonar has been associated with injury and death of multiple species of marine mammals.  Deep-diving beaked whales (family Ziphiidae) are particularly susceptible to naval sonar.  The US Navy operates multiple training and testing facilities where MFA sonar is used regularly, and where cumulative sublethal impacts of exposure to MFA sonar could have negative effects on beaked whale populations.  Responses of beaked whales to MFA sonar have been quantified in the form of risk functions for some species and regions.  Our goal was to develop a risk function for Blainville's beaked whales \textit{(Mesoplodon densirostris)} on the Pacific Missile Range Facility (PMRF) in Hawaii and to compare our risk function to another developed for the same species in a different ocean basin.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six Naval training exercises at PMRF in conjunction with modelled sonar received levels to describe the effect of Naval training and Naval MFA sonar on foraging groups of Blainville's beaked whales.  We used a multi-stage generalized additive modelling (GAM) approach . . . 
+
+We found that . . . 
 
 ------
 

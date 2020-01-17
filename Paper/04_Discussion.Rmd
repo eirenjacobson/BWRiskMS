@@ -10,3 +10,5 @@
 - GVPs appear to decrease over the course of MFA sonar; this is something we could investigate with a spatio-temporal model in teh future (hour since onset of MFA?  SEL?)
 
 - Discuss dose-response and p(disturbance) in context of [@tyack_using_2019] 
+
+- Compare results to Moretti et al 2014; in particular the fact that their “before” was likely actually similar to our “training without sonar”period as it was only 19 hours of data before the onset of sonar and it was the same training scenario as an SCC at PMRF. Therefore our risk function results of the decrease in dives from training without sonar to training with sonar are actually quite similar. Then we can discuss the fact that environment/habitat (e.g. deep basin with shallow slopes all around vs deep open ocean) doesn’t seem to play much of a role in Blainville’s response, and the response seems to be more of an intrinsic characterisitic. Also can mention here the same effort at SCORE with Cuvier’s – in light of these results we expect similar results there even though different species but similar habitat to AUTEC.
