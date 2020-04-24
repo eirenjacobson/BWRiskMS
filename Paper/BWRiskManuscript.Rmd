@@ -35,7 +35,7 @@ sonar <- filter(rlData, Period == "12")
 
 \Large{
 \textbf{
-\uppercase{Quantifying the response of Blainville's beaked whales to U.S. Naval sonar exercises in Hawaii}}}
+\uppercase{Quantifying the response of Blainville's beaked whales to US Naval sonar exercises in Hawaii}}}
 
 
 \normalsize
@@ -43,7 +43,7 @@ sonar <- filter(rlData, Period == "12")
 \textbf{Eiren K. Jacobson\textsuperscript{1}*, E. Elizabeth Henderson\textsuperscript{2}, Cornelia S. Oedekoven\textsuperscript{1}, David L. Miller\textsuperscript{1}, Stephanie L. Watwood\textsuperscript{3}, David J. Moretti\textsuperscript{3}, Len Thomas\textsuperscript{1}}
   
 \small
-\textsuperscript{1} \textit{Centre for Research into Ecological and Environmental Modelling, University of St Andrews, St Andrews, Scotland, UK}  
+\textsuperscript{1} \textit{Centre for Research into Ecological and Environmental Modelling, School of Mathematics and Statistics, University of St Andrews, St Andrews, Scotland}  
 
 \textsuperscript{2} \textit{Naval Information Warfare Center Pacific, San Diego, CA, USA}  
 
@@ -56,16 +56,11 @@ sonar <- filter(rlData, Period == "12")
 \textbf{Draft `r format(Sys.time(), "%d %B %Y")`}
 \end{center}
 
-------
-
 ## Abstract
 
-Naval use of mid-frequency active (MFA) sonar has been associated with injury and death of multiple species of marine mammals.  Deep-diving beaked whales (family Ziphiidae) are particularly susceptible to naval sonar.  The US Navy operates multiple training and testing facilities where MFA sonar is used regularly, and where cumulative sublethal impacts of exposure to MFA sonar could have negative effects on beaked whale populations.  Responses of beaked whales to MFA sonar have been quantified in the form of risk functions for some species and regions.  Our goal was to develop a risk function for Blainville's beaked whales \textit{(Mesoplodon densirostris)} on the Pacific Missile Range Facility (PMRF) in Hawaii and to compare our risk function to another developed for the same species in a different ocean basin.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six Naval training exercises at PMRF in conjunction with modelled sonar received levels to describe the effect of Naval training and Naval MFA sonar on foraging groups of Blainville's beaked whales.  We used a multi-stage generalized additive modelling (GAM) approach . . . 
+Naval use of mid-frequency active (MFA) sonar has been associated with injury and death of multiple species of marine mammals.  Deep-diving beaked whales (family Ziphiidae) are particularly susceptible to naval sonar.  The US Navy operates multiple training and testing facilities where MFA sonar is used regularly, and where cumulative sublethal impacts of exposure to MFA sonar could have negative effects on beaked whale populations.  Responses of beaked whales to MFA sonar have been quantified in the form of risk functions for some species and regions.  Here we develop a risk function for Blainville's beaked whales \textit{(Mesoplodon densirostris)} on the Pacific Missile Range Facility (PMRF) in Hawaii and compare our risk function to another developed for the same species in a different ocean basin.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six naval training exercises at PMRF in conjunction with modelled sonar received levels to describe the effect of Naval training and MFA sonar on foraging groups of Blainville's beaked whales.  We used a multi-stage generalized additive modelling (GAM) approach to control for the underlying spatial distribution of Blainville's beaked whales when modelling the effects of training activities and of MFA sonar.  Our results show that at a MFA sonar received level of 150 dB re 1$\mu$Pa the probability of detecting groups of Blainville's beaked whales decreased by 78\% (95\% CI 62\%-100\%) when compared to periods when general Naval training activity was ongoing and by 92\% (95\% CI 87\%-100\%) when compared to pre-training baseline periods.  These results indicate a more pronounced response to Naval training and MFA sonar than has been previously reported.  In future, we would like to apply these methods to data from other Navy ranges to better understand how beaked whale responses to Naval training and sonar differ across species and locations.
 
-We found that . . . 
-
-------
-
+\newpage
 
 ```{r child = '01_Intro.Rmd'}
 ```
@@ -88,7 +83,3 @@ We found that . . .
 
 <div id="refs"></div>
 
-\newpage
-
-```{r child = '05_AppendixA.Rmd'}
-```

@@ -168,7 +168,7 @@ save(naive, file="./Data/naiveEstReduction.RData")
 
 ```{r}
 library(mgcv)
-load("../Data/m1baselineMRF.RData")
+load("./Data/m1baselineMRF.RData")
 library(dplyr)
 
 m1.predgrid <- distinct(baseline, ID, .keep_all=TRUE)

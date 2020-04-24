@@ -1,4 +1,20 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # 3 Results
+
+## 3.1 Results of Data Collection and Processing
+
+```{r}
+
+load("../Data/rlDataN.RData")
+load("../Data/delta21summary.RData")
+load("../Data/delta31summary.RData")
+load("../Data/delta32summary.RData")
+
+```
 
 Data were collected before and during six SCCs; two each in in 2013, 2014, and 2017 (Table 1).  The number of hydrophones for which recordings were available varied from 49 to 61.  A total of `r nrow(rlData)` 30-min observations were made. 
 
@@ -16,7 +32,7 @@ The exact timing of activities during these exercises varied (Fig. 2).  For most
 include_graphics("../Figures/Timeseries.pdf")
 ```
 
-Across all SCCs, hydrophones, and conditions, a total of `r sum(rlData$DivePresent)` GVPs were identified.  The average probability of a GVP in the dataset was therefore `r round(sum(rlData$DivePresent)/nrow(rlData), digits = 2)*100`\%. The spatial distribution of GVPs differed during the pre-activity phases of SCCs (Fig. SX; top panel).
+Across all SCCs, hydrophones, and conditions, a total of `r sum(rlData$DivePresent)` GVPs were identified.  The average $\mathbb{P}(\text{GVP})$ in the dataset was therefore `r round(sum(rlData$DivePresent)/nrow(rlData), digits = 2)*100`\%. The spatial distribution of GVPs differed during the pre-activity phases of SCCs (Fig. SX; top panel).
 
 Modelled maximum received levels ranged from `r round(range(sonar$MaxRL[which(sonar$MaxRL>0)])[1])` to `r round(range(sonar$MaxRL[which(sonar$MaxRL>0)])[2])` dB re. 1 $\mu$ Pa, with a median value when MFA sonar was present of `r round(median(sonar$MaxRL[which(sonar$MaxRL>0)]))` dB re. 1 $\mu$ Pa. The intensity and spatial distribution of MFA received levels varied across the range and across SCCs (Fig. SX). 
 
@@ -24,22 +40,31 @@ Modelled maximum received levels ranged from `r round(range(sonar$MaxRL[which(so
 load("../Data/naiveEstReduction.RData")
 ```
 
-Based on the observed data, the probability of a GVP within a 30-min period changed by `r round(naive[1]*100)`\% when Naval activity was present compared to when Naval activity was absent, by `r round(naive[2]*100)`\% when Naval activity and MFA sonar were present compared to when only ships were present, and by `r round(naive[3]*100)`\% when Naval activity and MFA sonar were present compared to when neither ships nor sonar were present (Fig. S2). 
+Based on the observed data, $\mathbb{P}(\text{GVP})$ changed by `r round(naive[1]*100)`\% when Naval activity was present compared to when Naval activity was absent, by `r round(naive[2]*100)`\% when Naval activity and MFA sonar were present compared to when only ships were present, and by `r round(naive[3]*100)`\% when Naval activity and MFA sonar were present compared to when neither ships nor sonar were present (Fig. SX). 
 
 ## 3.2 Results of spatial modelling
 
-We created separate tesselations for each SCC (Fig. SX).  In August 2017, data were available from fewer hydrophones, and so in some cases the tesselated tiles, with bounding radius of 6500 m, did not completely cover the range.
+We created separate tesselations for each SCC (Fig. SX).  In August 2017, data were available from fewer hydrophones, and so in some cases the tesselated tiles, with bounding radius of 6500 m, did not completely cover the range.  Hydrophone depths varied from `r round(min(rlData$Depth), digits = 0)` to `r round(max(rlData$Depth), digits = 0)` m.
 
-Hydrophone depths varied from 648 to 4716 m.   The model \texttt{M1} predicted highest probability of GVPs at hydrophone depths between 1500 and 2000 m, consistent with other findings that Blainville's beaked whales prefer to forage in slope habitats [CITE].
+\texttt{M1} fitted a spatial model of $\mathbb{P}(\text{GVP})$ to data collected prior to the onset of Naval training activity.  This model used a MRF smooth to account for the spatial structure of the range and a spline on depth, with an offset for the log of the area effectively monitored by each hydrophone.  Both the MRF and spline on depth were significant (p-value < 2E-16).  The model explained 14.1\% of deviance in the dataset, and visual inspection of observed versus predicted values indicated a good fit to the data (Fig. SX).  The model \texttt{M1} predicted highest $\mathbb{P}(\text{GVP})$ at hydrophone depths between 1500 and 2000 m (Fig. SX).
 
-\texttt{M2} used the predicted values from \texttt{M1} as an offset and fitted a model to data when Naval activity was ongoing, as indicated by the presence of ships. 
+\texttt{M2} used the predicted values from \texttt{M1} as an offset and fitted a model of to data when Naval activity was ongoing, as indicated by the presence of Naval ships on the range.  This model was intercept-only, and $\mathbb{P}(\text{GVP})$ when Naval training was ongoing was significantly different from the baseline period (p-value < 2E-16).  The expected $\mathbb{P}(\text{GVP})$ decreased by a median of `r round(abs(d21$Q50 * 100), digits = 0)`\% (95\% CI `r round(abs(d21$Q97.5 * 100), digits = 0)`\% - `r round(abs(d21$Q2.5 * 100), digits = 0)`\%) when Naval training activity was present compared to when it was absent.  
 
-- M3 (spline on MaxRL, could reinstate 3-panel figure with dots or line for each HP?)
+\texttt{M3} used the predicted values from \texttt{M2} as an offset and fitted a model to data when Naval activity and MFA sonar were present.  This model used a monotonically decreasing spline on modelled MFA sonar received level (Fig. SX) and did not include an intercept term.  The smooth on MFA sonar received level had significant explanatory power (p-value = 6.74E-10) and the model explained 12.4\% of deviance in the data. 
 
-```{r fig5, eval=FALSE, fig.cap="Map of predicted probability of diving at each hydrophone before, during Phase A, and during Phase B of each SCC.", out.width='90%', fig.align='center'}
-include_graphics("../Figures/SpatialComparisonPExp.pdf")
+For MFA sonar received levels above 100 dB, change in $\mathbb{P}(\text{GVP})$ was calculated relative to the pre-activity baseline period ($\Delta_{M3':M1'}$) and to the period when Naval activity was present on the range 
+ ($\Delta_{M3':M2'}$; Fig. 4 & Fig. 5).  At a received level of 150 dB, $\Delta_{M3':M1'}$ was `r (filter(d31, MaxRL == 150) %>% select(Q50) %>% round(digits = 2))*100`\% (95\% CI `r (filter(d31, MaxRL == 150) %>% select(Q2.5) %>% round(digits = 2))*100`\% - `r (filter(d31, MaxRL == 150) %>% select(Q97.5) %>% round(digits = 2))*100`\%) and $\Delta_{M3':M2'}$ was `r (filter(d32, MaxRL == 150) %>% select(Q50) %>% round(digits = 2))*100`\% (95\% CI `r (filter(d32, MaxRL == 150) %>% select(Q2.5) %>% round(digits = 2))*100`\% - `r (filter(d32, MaxRL == 150) %>% select(Q97.5) %>% round(digits = 2))*100`\%).
+ 
+```{r fig3, fig.cap="Map of expected probability of diving (color scale) at each hydrophone during each SCC (columns) prior to the onset of Naval training activity, during Naval training activity when no MFA sonar was present, and during Naval training activity when MFA sonar was present at a level of 150 dB re. 1 uPa rms (rows).", out.width='90%', fig.align='center'}
+include_graphics("../Figures/AllSCCBootstrappedMedianPDive.png")
 ```
 
-- Uncertainty prop
+```{r fig4, fig.cap = "Median (black line) and 95\\% CIs (gray shading) expected change in the probability of detecting a group vocal period (y-axis) with increasing MFA sonar received level (x-axis) relative to when Naval training activity but no MFA sonar is present on the range.", out.width='50%', fig.align='center'}
+include_graphics("../Figures/PMRFDeltaShipsZoom.png")
+```
 
-- Total change
+```{r fig5, fig.cap="Median (black line) and 95\\% CIs (gray shading) expected change in the probability of detecting a group vocal period (y-axis) with increasing MFA sonar received level (x-axis) relative to when neither Naval training activity nor MFA sonar is present on the range.", out.width='50%', fig.align='center'}
+include_graphics("../Figures/PMRFDeltaBaseline.png")
+```
+
+

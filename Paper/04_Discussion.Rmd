@@ -3,6 +3,8 @@
 
 - Describe why we didn't use a single giant GAM -- didn't want contamination of the baseline period by the spatial distribution of sonar, would lead to underestimates of the impact of sonar. Could present the single giant GAM in an appendix.
 
+- Emphasize novelty -- more sophisticated method
+
 - Discuss unusual timeline of Feb13
 
 - Discuss what "Naval activity" could mean
