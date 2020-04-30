@@ -1,7 +1,11 @@
 
 # 4 Discussion
 
+
+
 - Describe why we didn't use a single giant GAM -- didn't want contamination of the baseline period by the spatial distribution of sonar, would lead to underestimates of the impact of sonar. Could present the single giant GAM in an appendix.
+
+- Data from PMRF are from an undesigned experiment, where the spatial intensity of the treatments (noise from ship presence and sonar) were not applied randomly with respect to either the study area or beaked whale presence.
 
 - Emphasize novelty -- more sophisticated method
 
