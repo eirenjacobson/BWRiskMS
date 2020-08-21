@@ -2,12 +2,15 @@
 
 
 We used posterior simulation to propagate uncertainty through M1, M2, and M3. Each model was fitted via restricted maximum likelihood (REML), so the results are empirical Bayes estimates. In this case we can generate samples from the (multivariate normal) posterior of the model parameters. After generating a sample, $\boldsymbol{\beta}^* \sim \text{MVN}(\hat{\boldsymbol{\beta}}, \textbf{V}_{\boldsymbol{\beta}})$, we can use the matrix that maps the model parameters to the predictions on the linear predictor scale (often referred to as the $\mathbf{L}_p$ matrix or $\mathbf{X}_p$ matrix; @wood_generalized_2017; section 7.2.6), along with the inverse link function to generate predictions for each posterior sample. Here the $\boldsymbol{\beta}$ for each model includes the coefficients for the smooth terms in the model and fixed effects (e.g., intercept) if present. Predictions, $\boldsymbol{\mu}^*$, can be written as:
+
 \begin{equation*}
         \boldsymbol{\mu}^* = g^{-1}(\boldsymbol{\eta}^*) = g^{-1}(\mathbf{X}_p\boldsymbol{\beta}^*+\boldsymbol{\xi}),
 \end{equation*}
+
 where $g$ is the link function, $\boldsymbol{\eta}^*$ is the linear predictor and $\boldsymbol{\xi}$ is any offset used by this prediction. By sampling from the posterior of $\hat{\boldsymbol{\beta}}$, and then taking the variance of the resulting predictions we can obtain variance estimates (@wood_generalized_2017; section 7.2.6). The prediction grid contained all possible combinations of covariates within the realized covariate space; i.e., each hydrophone for each SCC with associated location, hydrophone depth, and area of the tessellation tile, presence/absence of Naval activity, and, if Naval activity was present, then either sonar absence or sonar received level between 35 and 190 dB in intervals of 5 dB.  This procedure was repeated for each model, with refitting to updated offsets from the previous model. 
 
 An algorithm for calculating the variance from our multi-stage approach is as follows. First define $N_b$ as the number of samples to make, let $\mathbf{X}_{p,\texttt{M}j}$ for $j=1,2,3$ be the $\mathbf{L}_p$ matrix that maps coefficients to the predictions for model $\texttt{M}j$. For $N_b$ times:
+
 \begin{enumerate}
     \item Draw a sample from the posterior of $\texttt{M1}$:  $\tilde{\boldsymbol{\beta}}_\texttt{M1}\sim\text{MVN}(\hat{\boldsymbol{\beta}}_\texttt{M1}, \mathbf{V}_\texttt{M1})$.
     \item Calculate a new offset for $\texttt{M2}$, $\tilde{\boldsymbol{\xi}}_{\texttt{M1}} = \mathbf{X}_{p,\texttt{M1}} \tilde{\boldsymbol{\beta}}_\texttt{M1} + \log_e \mathbf{A}$.
@@ -17,5 +20,6 @@ An algorithm for calculating the variance from our multi-stage approach is as fo
     \item Refit $\texttt{M3}$ with offset $\tilde{\boldsymbol{\xi}}_{\texttt{M2}}$ to obtain $\texttt{M3}^\prime$.
     \item Predict $\boldsymbol{\mu}_{\texttt{M1}^\prime}$, $\boldsymbol{\mu}_{\texttt{M2}^\prime}$, and $\boldsymbol{\mu}_{\texttt{M3}^\prime}$ over prediction grid and store them.
 \end{enumerate}
+
 We can then calculate summary statistics (means and variances) of the $N_b$ values of $\boldsymbol{\mu}_{\texttt{M1}^\prime}$, $\boldsymbol{\mu}_{\texttt{M2}^\prime}$, and $\boldsymbol{\mu}_{\texttt{M3}^\prime}$ we have generated. The empirical variance of the $N_b$ values of $\boldsymbol{\mu}_{\texttt{M3}^\prime}$ will give the uncertainty, incorporating components from all three models. We can take appropriate pointwise quantiles to form confidence bands for the functional relationships between sonar received level and estimated probability of detecting GVPs.
 
