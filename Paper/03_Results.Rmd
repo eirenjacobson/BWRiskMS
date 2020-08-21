@@ -16,7 +16,7 @@ load("../Data/delta32summary.RData")
 
 ```
 
-Data were collected before and during six SCCs; two each in in 2013, 2014, and 2017 (Table 1).  The number of hydrophones for which recordings were available varied from 49 to 61.  A total of `r nrow(rlData)` 30-min observations were made. 
+Data were collected before and during six SCCs: two each in in 2013, 2014, and 2017 (Table 1).  The number of hydrophones for which recordings were available varied from 49 to 61.  A total of `r nrow(rlData)` 30-min observations were made. 
 
 ```{r tab1}
 
@@ -44,9 +44,9 @@ Based on the observed data, $\mathbb{P}(\text{GVP})$ changed by `r round(naive[1
 
 ## 3.2 Results of spatial modelling
 
-We created separate tesselations for each SCC (Fig. SX).  In August 2017, data were available from fewer hydrophones, and so in some cases the tesselated tiles, with bounding radius of 6500 m, did not completely cover the range.  Hydrophone depths varied from `r round(min(rlData$Depth), digits = 0)` to `r round(max(rlData$Depth), digits = 0)` m.
+We created separate tessellations for each SCC (Fig. SX).  In August 2017, data were available from fewer hydrophones, and so in some cases the tessellated tiles, with bounding radius of 6,500 m, did not completely cover the range.  Hydrophone depths varied from `r round(min(rlData$Depth), digits = 0)` to `r round(max(rlData$Depth), digits = 0)` m.
 
-\texttt{M1} fitted a spatial model of $\mathbb{P}(\text{GVP})$ to data collected prior to the onset of Naval training activity.  This model used a MRF smooth to account for the spatial structure of the range and a spline on depth, with an offset for the log of the area effectively monitored by each hydrophone.  Both the MRF and spline on depth were significant (p-value < 2E-16).  The model explained 14.1\% of deviance in the dataset, and visual inspection of observed versus predicted values indicated a good fit to the data (Fig. SX).  The model \texttt{M1} predicted highest $\mathbb{P}(\text{GVP})$ at hydrophone depths between 1500 and 2000 m (Fig. SX).
+\texttt{M1} fitted a spatial model of $\mathbb{P}(\text{GVP})$ to data collected prior to the onset of Naval training activity.  This model used a MRF smooth to account for the spatial structure of the range and a spline on depth, with an offset for the log of the area effectively monitored by each hydrophone.  Both the MRF and spline on depth were significant (p-value < 2E-16).  The model explained 14.1\% of deviance in the dataset, and visual inspection of observed versus predicted values indicated a good fit to the data (Fig. SX).  The model \texttt{M1} predicted highest $\mathbb{P}(\text{GVP})$ at hydrophone depths between 1,500 and 2,000 m (Fig. SX).
 
 \texttt{M2} used the predicted values from \texttt{M1} as an offset and fitted a model of to data when Naval activity was ongoing, as indicated by the presence of Naval ships on the range.  This model was intercept-only, and $\mathbb{P}(\text{GVP})$ when Naval training was ongoing was significantly different from the baseline period (p-value < 2E-16).  The expected $\mathbb{P}(\text{GVP})$ decreased by a median of `r round(abs(d21$Q50 * 100), digits = 0)`\% (95\% CI `r round(abs(d21$Q97.5 * 100), digits = 0)`\% - `r round(abs(d21$Q2.5 * 100), digits = 0)`\%) when Naval training activity was present compared to when it was absent.  
 
