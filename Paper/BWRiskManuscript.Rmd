@@ -83,3 +83,12 @@ Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-fre
 
 <div id="refs"></div>
 
+\newpage
+
+```{r child = '05_AppendixA.Rmd'}
+```
+
+\newpage
+
+```{r child = '06_AppendixB.Rmd'}
+```
