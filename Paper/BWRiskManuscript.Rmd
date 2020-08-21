@@ -10,9 +10,9 @@ header-includes:
 - \usepackage{lineno}
 - \linenumbers
 output:
-  word_document: 
   pdf_document:
         fig_caption: yes
+  word_document: 
 mainfont: Times New Roman
 ---
 
