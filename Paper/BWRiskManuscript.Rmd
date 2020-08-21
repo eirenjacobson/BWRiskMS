@@ -9,11 +9,10 @@ header-includes:
 - \usepackage{setspace}
 - \usepackage{lineno}
 - \linenumbers
-output:
-#  word_document:
-  pdf_document:
-        fig_caption: yes
 mainfont: Times New Roman
+output:
+  pdf_document:
+    fig_caption: yes
 ---
 
 ```{r setup, include=FALSE}
