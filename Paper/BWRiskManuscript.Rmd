@@ -39,7 +39,7 @@ sonar <- filter(rlData, Period == "12")
 
 \normalsize
 \hfill\break  
-\textbf{Eiren K. Jacobson\textsuperscript{1}*, E. Elizabeth Henderson\textsuperscript{2}, Cornelia S. Oedekoven\textsuperscript{1}, David L. Miller\textsuperscript{1}, Stephanie L. Watwood\textsuperscript{3}, David J. Moretti\textsuperscript{3}, Len Thomas\textsuperscript{1}}
+\textbf{Eiren K. Jacobson\textsuperscript{1}, E. Elizabeth Henderson\textsuperscript{2}, David L. Miller\textsuperscript{1}, Cornelia S. Oedekoven\textsuperscript{1}, David J. Moretti\textsuperscript{3}, Len Thomas\textsuperscript{1}}
   
 \small
 \textsuperscript{1} \textit{Centre for Research into Ecological and Environmental Modelling, School of Mathematics and Statistics, University of St Andrews, St Andrews, Scotland}  
@@ -48,16 +48,39 @@ sonar <- filter(rlData, Period == "12")
 
 \textsuperscript{3} \textit{Naval Undersea Warfare Center, Newport, RI, USA}  
 
-\*\* Corresponding author (email: eiren.jacobson@st-andrews.ac.uk) 
+\normalsize
+
+\textbf{Correspondence:}  
+
+Eiren K. Jacobson \\
+The Observatory  \\
+Buchanan Gardens  \\
+University of St Andrews \\ 
+St Andrews \\
+Fife \\
+KY16 9LZ \\  
+Scotland \\
+UK  
+
+Email: eiren.jacobson@st-andrews.ac.uk
 
 \normalsize
 \hfill\break   
 \textbf{Draft `r format(Sys.time(), "%d %B %Y")`}
 \end{center}
 
+\newpage
+\doublespace
+
 ## Abstract
 
 Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-frequency active sonar (MFAS) have been quantified for some species and regions using risk functions, which give the probability of a response as a function of covariates such as received level. We develop a novel risk function for Blainville's beaked whales (BBWs) on the US Navy Pacific Missile Range Facility (PMRF) in Hawaii and compare our risk function to one developed for the same species in a different ocean basin.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six naval training exercises at PMRF along with modelled sonar received levels to describe the effect of training and MFAS on foraging groups of BBWs.  We used a multi-stage generalized additive modelling (GAM) approach to control for the underlying spatial distribution of vocalizations under baseline conditions.  At a MFAS received level of 150 dB re 1$\mu$Pa the probability of detecting groups of BBWs decreased by 78\% (95\% CI 62\%-100\%) when compared to periods when general training activity was ongoing and by 92\% (95\% CI 87\%-100\%) when compared to baseline conditions.  Our results indicate a more pronounced response to naval training and MFAS than has been previously reported.  [200/200]
+
+### KEYWORDS
+
+Blainville's beaked whales, \textit{Mesopolodon densirostris}, mid-frequency active sonar, passive acoustic data, behavioral response, generalized additive model 
+
+
 
 \newpage
 
@@ -73,6 +96,31 @@ Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-fre
 ```{r child = '04_Discussion.Rmd'}
 ```
 
+## Acknowledgements
+
+This study was funded by the US Navy Living Marine Resources Program  (Contract No. N39430-17-P-1983).
+
+## Authors' Contributions
+
+Conceptualization: E.E.H., D.J.M, L.T.  
+Data curation: E.K.J., E.E.H.  
+Formal analysis: E.K.J., E.E.H., C.S.O.  
+Funding acquisition: E.E.H., D.J.M., L.T.  
+Investigation: E.E.H.  
+Methodology: E.K.J., E.E.H., D.L.M., C.S.O., L.T.  
+Software: E.K.J., D.L.M.  
+Supervision: L.T.  
+Visualization: E.K.J.  
+Writing -- original draft: E.K.J., E.E.H., D.L.M.  
+Writing -- review & editing: E.K.J, E.E.H., D.L.M., C.S.O., D.J.M., L.T.  
+
+## ORCID
+
+Eiren K. Jacobson: https://orcid.org/0000-0003-0147-8367  
+David L. Miller: https://orcid.org/0000-0002-9640-6755  
+Cornelia S. Oedekoven: https://orcid.org/0000-0002-5610-7814  
+Len Thomas: https://orcid.org/0000-0002-7436-067X  
+
 # References
 
 \setlength{\parindent}{-0.2in}
@@ -84,10 +132,15 @@ Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-fre
 
 \newpage
 
-```{r child = '05_AppendixA.Rmd'}
+```{r child = '05_S1.Rmd'}
 ```
 
 \newpage
 
-```{r child = '06_AppendixB.Rmd'}
+```{r child = '06_S2.Rmd'}
+```
+
+\newpage
+
+```{r child = '07_S3.Rmd'}
 ```
