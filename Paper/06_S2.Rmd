@@ -1,4 +1,4 @@
-# Appendix A: Supplementary Tables and Figures
+# S2: Supplementary Tables and Figures
 
 ```{r figS1, out.width='100%'}
 
