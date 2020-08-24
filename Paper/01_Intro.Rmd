@@ -3,7 +3,7 @@ output:
   pdf_document: default
   html_document: default
 ---
-# 1 Introduction
+# Introduction
 
 Beaked whales (family Ziphiidae) are a group of deep-diving cetaceans that rely on sound to forage, navigate, and communicate [@macleod_review_2006; @johnson_beaked_2004; @aguilar_de_soto_no_2012].  Multiple mass strandings of beaked whales have been associated with high-intensity anthropogenic sound sources.  These acute events have motivated research into whether and how beaked whales respond to different types and intensities of anthropogenic noise [@cox_understanding_2006].
 
