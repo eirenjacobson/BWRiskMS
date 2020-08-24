@@ -1,4 +1,4 @@
-# S1: Uncertainty estimation details
+# S1: Uncertainty estimation details {.unlisted .unnumbered}
 
 
 We used posterior simulation to propagate uncertainty through M1, M2, and M3. Each model was fitted via restricted maximum likelihood (REML), so the results are empirical Bayes estimates. In this case we can generate samples from the (multivariate normal) posterior of the model parameters. After generating a sample, $\boldsymbol{\beta}^* \sim \text{MVN}(\hat{\boldsymbol{\beta}}, \textbf{V}_{\boldsymbol{\beta}})$, we can use the matrix that maps the model parameters to the predictions on the linear predictor scale (often referred to as the $\mathbf{L}_p$ matrix or $\mathbf{X}_p$ matrix; @wood_generalized_2017; section 7.2.6), along with the inverse link function to generate predictions for each posterior sample. Here the $\boldsymbol{\beta}$ for each model includes the coefficients for the smooth terms in the model and fixed effects (e.g., intercept) if present. Predictions, $\boldsymbol{\mu}^*$, can be written as:
