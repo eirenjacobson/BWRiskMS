@@ -1,5 +1,5 @@
 ---
-bibliography: BWRisk.bib
+bibliography: bwrisk.bib
 csl: marine-mammal-science.csl
 fontsize: 12pt
 header-includes:
@@ -9,10 +9,12 @@ header-includes:
 - \usepackage{setspace}
 - \usepackage{lineno}
 - \linenumbers
-mainfont: Times New Roman
+- \usepackage{float} \floatplacement{figure}{H}
+- \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}}
+  \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
 output:
-  pdf_document:
-    fig_caption: yes
+  bookdown::pdf_document2:
+    toc: no
 ---
 
 ```{r setup, include=FALSE}
@@ -72,11 +74,11 @@ Email: eiren.jacobson@st-andrews.ac.uk
 \newpage
 \doublespace
 
-## Abstract
+## Abstract {.unlisted .unnumbered}
 
 Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-frequency active sonar (MFAS) have been quantified for some species and regions using risk functions, which give the probability of a response as a function of covariates such as received level. We develop a novel risk function for Blainville's beaked whales (BBWs) on the US Navy Pacific Missile Range Facility (PMRF) in Hawaii and compare our risk function to one developed for the same species in a different ocean basin.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six naval training exercises at PMRF along with modelled sonar received levels to describe the effect of training and MFAS on foraging groups of BBWs.  We used a multi-stage generalized additive modelling (GAM) approach to control for the underlying spatial distribution of vocalizations under baseline conditions.  At a MFAS received level of 150 dB re 1$\mu$Pa the probability of detecting groups of BBWs decreased by 78\% (95\% CI 62\%-100\%) when compared to periods when general training activity was ongoing and by 92\% (95\% CI 87\%-100\%) when compared to baseline conditions.  Our results indicate a more pronounced response to naval training and MFAS than has been previously reported.  [200/200]
 
-### KEYWORDS
+### KEYWORDS {.unlisted .unnumbered}
 
 Blainville's beaked whales, \textit{Mesopolodon densirostris}, mid-frequency active sonar, passive acoustic data, behavioral response, generalized additive model 
 
@@ -96,11 +98,11 @@ Blainville's beaked whales, \textit{Mesopolodon densirostris}, mid-frequency act
 ```{r child = '04_Discussion.Rmd'}
 ```
 
-## Acknowledgements
+### Acknowledgements {.unlisted .unnumbered}
 
 This study was funded by the US Navy Living Marine Resources Program  (Contract No. N39430-17-P-1983).
 
-## Authors' Contributions
+### Authors' Contributions {.unlisted .unnumbered}
 
 Conceptualization: E.E.H., D.J.M, L.T.  
 Data curation: E.K.J., E.E.H.  
@@ -114,14 +116,14 @@ Visualization: E.K.J.
 Writing -- original draft: E.K.J., E.E.H., D.L.M.  
 Writing -- review & editing: E.K.J, E.E.H., D.L.M., C.S.O., D.J.M., L.T.  
 
-## ORCID
+### ORCID {.unlisted .unnumbered}
 
 Eiren K. Jacobson: https://orcid.org/0000-0003-0147-8367  
 David L. Miller: https://orcid.org/0000-0002-9640-6755  
 Cornelia S. Oedekoven: https://orcid.org/0000-0002-5610-7814  
 Len Thomas: https://orcid.org/0000-0002-7436-067X  
 
-# References
+## References {.unlisted .unnumbered}
 
 \setlength{\parindent}{-0.2in}
 \setlength{\leftskip}{0.2in}
@@ -129,6 +131,8 @@ Len Thomas: https://orcid.org/0000-0002-7436-067X
 \noindent
 
 <div id="refs"></div>
+
+\beginsupplement
 
 \newpage
 
