@@ -35,9 +35,9 @@ We used data collected prior to SCCs, when no naval ships were present on the ra
 
 We modelled the probability of a GVP at tile $i$ as a Bernoulli trial: $\texttt{GVP}_i \sim \text{Bin}(1, \mu_{\texttt{M1},i})$. The linear predictor for the model was modelling on the logit scale:
 \begin{equation*}
-    \text{logit}\left(\mu_{\texttt{M1},i}\right) = \beta_{\texttt{M1},0} +  f(\texttt{MRF}_i) + f(\texttt{Depth}_i) + \log_e A_i, \qquad (\texttt{M1})
+    \text{logit}\left(\mu_{\texttt{M1},i}\right) = \beta_{\texttt{M1},0} +  f(\texttt{MRF}_{i,s}) + f(\texttt{Depth}_i) + \log_e A_i, \qquad (\texttt{M1})
 \end{equation*}
-where $\beta_{\texttt{M1},0}$ is an intercept, $f(\texttt{MRF}_i)$ denotes the Markov random field used to smooth space, $f(\texttt{Depth}_i)$ is a smooth of depth (using a thin plate spline; @wood_thin_2003) and $\log_e A_i$ is an offset for the area (in $\text{km}^2$) of each tile, $A_i$. The offset term accounts changes in probabilities of GVP detection due to the differing area monitored by each hydrophone. Because the hydrophone tessellation changed between SCCs (as there were different sets of hydrophones recorded during each SSC), separate MRFs were used for each SCC, but a single smoothing parameter was estimated across all MRFs. This allows for different spatial smooths for each SCC, but constrains the smooths to have the same amount of wiggliness. The smooth of depth was shared across SCCs.
+where $\beta_{\texttt{M1},0}$ is an intercept, $f(\texttt{MRF}_{i,s})$ denotes the Markov random field used to smooth space in SCC $s$, $f(\texttt{Depth}_i)$ is a smooth of depth (using a thin plate spline; @wood_thin_2003) and $\log_e A_i$ is an offset for the area (in $\text{km}^2$) of each tile, $A_i$. The offset term accounts changes in probabilities of GVP detection due to the differing area monitored by each hydrophone. Because the hydrophone tessellation changed between SCCs (as there were different sets of hydrophones recorded during each SSC), separate MRFs were used for each SCC, but a single smoothing parameter was estimated across all MRFs. This allows for different spatial smooths for each SCC, but constrains the smooths to have the same amount of wiggliness. The smooth of depth was shared across SCCs.
 
 ### M2: Modelling the effect of Naval activity
 
