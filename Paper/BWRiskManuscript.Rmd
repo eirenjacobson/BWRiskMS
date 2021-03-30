@@ -1,6 +1,4 @@
 ---
-bibliography: bwrisk.bib
-csl: marine-mammal-science.csl
 fontsize: 12pt
 header-includes:
 - \usepackage{amsmath}
@@ -12,8 +10,12 @@ header-includes:
 - \usepackage{float} \floatplacement{figure}{H}
 - \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}}
   \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
+- \setcitestyle{round}
+bibliography: bwrisk.bib
+csl: marine-mammal-science.csl
 output:
   bookdown::pdf_document2:
+    citation_package: natbib
     toc: no
 ---
 
