@@ -1,0 +1,3 @@
+# S2: Implementation details {.unlisted .unnumbered}
+
+Data import and manipulation was accomplished using tidyverse [@wickham_welcome_2019] packages.  Map creation was facilitated by the \texttt{fields} [@nychka_douglas_fields_2017], \texttt{ggsn} [@santos_baquero_ggsn_2019], \texttt{marmap} [@pante_marmap_2013], \texttt{rgdal} [@bivand_rgdal_2019], \texttt{sf} [@pebesma_simple_2018], and \texttt{sp} [@bivand_applied_2013] packages.  All graphics were produced using \texttt{ggplot2} [@wickham_ggplot2_2016-1], with color palettes from the \texttt{viridis} [@garnier_viridis_2018-1] and \texttt{cmocean} [@thyng_cmocean_2019] packages.  The manuscript was written in \texttt{rmarkdown} [@xie_r_2018]. 

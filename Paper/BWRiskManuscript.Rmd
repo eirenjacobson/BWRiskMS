@@ -8,17 +8,15 @@ header-includes:
 - \usepackage{lineno}
 - \linenumbers
 - \usepackage{float} \floatplacement{figure}{H}
-- \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}}
-  \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
-- \setcitestyle{round}
+- \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\thesection.\arabic{table}}
+  \setcounter{figure}{0} \renewcommand{\thefigure}{S\thesection.\arabic{figure}}}
 bibliography: bwrisk.bib
-csl: marine-mammal-science.csl
 output:
   bookdown::pdf_document2:
-    citation_package: natbib
     toc: no
+    pandoc_args: [ "--csl", "marine-mammal-science.csl"]
+    
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
@@ -56,15 +54,14 @@ sonar <- filter(rlData, Period == "12")
 
 \textbf{Correspondence:}  
 
-Eiren K. Jacobson \\
+Eiren Jacobson \\
+University of St Andrews \\ 
 The Observatory  \\
 Buchanan Gardens  \\
-University of St Andrews \\ 
 St Andrews \\
 Fife \\
 KY16 9LZ \\  
 Scotland \\
-UK  
 
 Email: eiren.jacobson@st-andrews.ac.uk
 
@@ -78,7 +75,7 @@ Email: eiren.jacobson@st-andrews.ac.uk
 
 ## Abstract {.unlisted .unnumbered}
 
-Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-frequency active sonar (MFAS) have been quantified for some species and regions using risk functions, which give the probability of a response as a function of covariates such as received level. We develop a novel risk function for Blainville's beaked whales (BBWs) on the US Navy Pacific Missile Range Facility (PMRF) in Hawaii and compare our risk function to one developed for the same species in a different ocean basin.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six naval training exercises at PMRF along with modelled sonar received levels to describe the effect of training and MFAS on foraging groups of BBWs.  We used a multi-stage generalized additive modelling (GAM) approach to control for the underlying spatial distribution of vocalizations under baseline conditions.  At a MFAS received level of 150 dB re 1$\mu$Pa the probability of detecting groups of BBWs decreased by 78\% (95\% CI 62\%-100\%) when compared to periods when general training activity was ongoing and by 92\% (95\% CI 87\%-100\%) when compared to baseline conditions.  Our results indicate a more pronounced response to naval training and MFAS than has been previously reported.  [200/200]
+Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-frequency active sonar (MFAS) have been quantified for some species and regions. We describe the effects of MFAS on the probability of detecting diving groups of Blainville's beaked whales (BBWs) on the US Navy Pacific Missile Range Facility (PMRF) in Hawaii and compare our results to previously published results for the same species in a different ocean basin.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six naval training exercises at PMRF along with modelled sonar received levels to describe the effect of training and MFAS on foraging groups of BBWs.  We used a multi-stage generalized additive modelling approach to control for the underlying spatial distribution of vocalizations under baseline conditions.  At a MFAS received level of 150 dB re 1$\mu$Pa the probability of detecting groups of BBWs decreased by 78\% (95\% CI 62\%-100\%) when compared to periods when general training activity was ongoing and by 92\% (95\% CI 87\%-100\%) when compared to baseline conditions.  Our results indicate a more pronounced response to naval training and MFAS than has been previously reported.  [187/200]
 
 ### KEYWORDS {.unlisted .unnumbered}
 
@@ -112,7 +109,7 @@ Formal analysis: E.K.J., E.E.H., C.S.O.
 Funding acquisition: E.E.H., D.J.M., L.T.  
 Investigation: E.E.H.  
 Methodology: E.K.J., E.E.H., D.L.M., C.S.O., L.T.  
-Software: E.K.J., D.L.M.  
+Software: E.K.J., D.L.M., C.S.O. 
 Supervision: L.T.  
 Visualization: E.K.J.  
 Writing -- original draft: E.K.J., E.E.H., D.L.M.  
@@ -125,6 +122,8 @@ David L. Miller: https://orcid.org/0000-0002-9640-6755
 Cornelia S. Oedekoven: https://orcid.org/0000-0002-5610-7814  
 Len Thomas: https://orcid.org/0000-0002-7436-067X  
 
+\newpage
+
 ## References {.unlisted .unnumbered}
 
 \setlength{\parindent}{-0.2in}
@@ -134,19 +133,30 @@ Len Thomas: https://orcid.org/0000-0002-7436-067X
 
 <div id="refs"></div>
 
+\newpage
+
 \beginsupplement
+\setcounter{section}{0}
 
 \newpage
+\refstepcounter{section}
 
-```{r child = '05_S1.Rmd'}
+
+```{r child = '05_S1_Uncertainty.Rmd'}
 ```
 
 \newpage
+\refstepcounter{section}
+\setcounter{figure}{0}
 
-```{r child = '06_S2.Rmd'}
+```{r child = '07_S3_FigsTabs.Rmd'}
 ```
 
 \newpage
+\refstepcounter{section}
+\setcounter{figure}{0}
 
-```{r child = '07_S3.Rmd'}
+```{r child = '08_S4_SingleGAM.Rmd'}
 ```
+
+\newpage

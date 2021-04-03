@@ -1,4 +1,0 @@
-# S3: Single GAM {.unlisted .unnumbered}
-
-Results from a single giant GAM will be presented here. 
-
