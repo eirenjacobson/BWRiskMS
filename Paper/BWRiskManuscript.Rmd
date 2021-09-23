@@ -109,7 +109,7 @@ Formal analysis: E.K.J., E.E.H., C.S.O.
 Funding acquisition: E.E.H., D.J.M., L.T.  
 Investigation: E.E.H.  
 Methodology: E.K.J., E.E.H., D.L.M., C.S.O., L.T.  
-Software: E.K.J., D.L.M., C.S.O. 
+Software: E.K.J., D.L.M., C.S.O.  
 Supervision: L.T.  
 Visualization: E.K.J.  
 Writing -- original draft: E.K.J., E.E.H., D.L.M.  

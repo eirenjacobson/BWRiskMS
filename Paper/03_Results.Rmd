@@ -22,13 +22,13 @@ Data were collected before and during six SCCs: two each in 2013, 2014, and 2017
 
 load("../Data/summaryTable.RData")
 
-kable(table, caption="Number of hydrophones used and number of observations made (no. 30-min periods) for each SCC before the exercise began, when naval activity was present, and when Naval activity and MFAS were present.")
+kable(table, caption="Number of hydrophones (HPs) used and number of observations made (no. 30-min periods) during each Submarine Commander Course before the exercise began, when naval activity was present, and when Naval activity and mid-frequency active (MFA) sonar were present.")
 
 ```
 
 The exact timing of activities during these exercises varied (Fig. \@ref(fig:timeseries)).  For most SCCs, pre-activity data were available immediately preceding the onset of Naval training activity; however, in February 2013 the only available pre-activity data were collected almost a month prior to the onset of Naval training activity.  In some SCCs, weekends or other breaks in training resulted in a break in training activity on the range during the days preceding MFAS use.  MFAS was used for 3-4 days during each training event. 
 
-```{r timeseries, fig.cap="Timeseries of six recorded Naval training activities at PMRF.  The timeseries are aligned relative to the first day that MFAS (red triangles) was used in each exercise (horizontal axis).  Days with white background indicate days for which recordings and data were available.  Dark gray bars indicate the proportion of 30-min periods on each day, across all hydrophones, when GVPs were detected (vertical axis).  Black dots indicate days when Naval activity was present on the range.", out.width = '75%', fig.align='center'}
+```{r timeseries, fig.cap="Timeseries of six recorded Naval training activities at the Pacific Missile Range Facility.  The timeseries are aligned relative to the first day that mid-frequency active (MFA) sonar (red triangles) was used in each exercise (horizontal axis).  Days with white background indicate days for which recordings and data were available.  Dark gray bars indicate the proportion of 30-min periods on each day, across all hydrophones, when group vocal periods (GVPs) were detected (vertical axis).  Black dots indicate days when Naval activity was present on the range.", out.width = '75%', fig.align='center'}
 include_graphics("../Figures/Timeseries.pdf")
 ```
 
@@ -56,7 +56,7 @@ For MFAS received levels above 100 dB re. 1 $\mu$Pa, change in $\mathbb{P}(\text
  ($\Delta_{M3':M2'}$; Fig. 4 & Fig. 5).  At a received level of 150 dB, $\Delta_{M3':M1'}$ was `r (filter(d31, MaxRL == 150) %>% select(Q50) %>% round(digits = 2))*100`\% (95\% CI `r (filter(d31, MaxRL == 150) %>% select(Q2.5) %>% round(digits = 2))*100`\% - `r (filter(d31, MaxRL == 150) %>% select(Q97.5) %>% round(digits = 2))*100`\%) and $\Delta_{M3':M2'}$ was `r (filter(d32, MaxRL == 150) %>% select(Q50) %>% round(digits = 2))*100`\% (95\% CI `r (filter(d32, MaxRL == 150) %>% select(Q2.5) %>% round(digits = 2))*100`\% - `r (filter(d32, MaxRL == 150) %>% select(Q97.5) %>% round(digits = 2))*100`\%). Relative to when only naval training is present, $\Delta_{M3':M2'}$ predicts a 50\% reduction in $\mathbb{P}(\text{GVP})$ at a MFAS received level of 135 dB re 1 $\mu$Pa.
  
  
-```{r mappgvp, fig.cap="Map of expected probability of detecting a GVP (color scale) at each hydrophone during each SCC (columns) prior to the onset of naval training activity, during naval training activity when no MFAS was present, and during naval training activity when MFAS was present at a level of 150 dB re. 1 $\\mu$Pa rms (rows).", out.width='90%', fig.align='center'}
+```{r mappgvp, fig.cap="Map of expected probability of detecting a GVP (color scale) at each hydrophone during each SCC (columns) prior to the onset of naval training activity, during naval training activity when no MFAS was present, and during naval training activity when MFAS was present at a received level of 150 dB re\.\ 1 $\\mu$Pa rms (rows).", out.width='90%', fig.align='center'}
 include_graphics("../Figures/AllSCCBootstrappedMedianPDive.png")
 ```
 
