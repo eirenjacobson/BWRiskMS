@@ -106,7 +106,7 @@ This study was funded by the US Navy Living Marine Resources Program  (Contract 
 Conceptualization: E.E.H., D.J.M, L.T.  
 Data curation: E.K.J., E.E.H.  
 Formal analysis: E.K.J., E.E.H., C.S.O.  
-Funding acquisition: E.E.H., D.J.M., L.T.  
+Funding acquisition: E.E.H., D.J.M., L.T., E.K.J.  
 Investigation: E.E.H.  
 Methodology: E.K.J., E.E.H., D.L.M., C.S.O., L.T.  
 Software: E.K.J., D.L.M., C.S.O.  
