@@ -24,12 +24,13 @@ library(tidyr)
 library(dplyr)
 library(knitr)
 
-load("../Data/rlDataN.RData")
-rlData <- rlDataN
+load("../Data/PMRF_AllSCCs.RData")
+rlData <- PMRF_SCCData
 
 baseline <- filter(rlData, Period=="00") 
 ships <- filter(rlData, Period=="02")
-sonar <- filter(rlData, Period == "12")
+sonar <- filter(rlData, Period == "12" & MaxRL > 0)
+
 ```
 
 \begin{center}
