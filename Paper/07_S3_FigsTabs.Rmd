@@ -17,7 +17,7 @@ include_graphics("../Figures/PDiveBoxplot.png")
 
 ```{r tessellations, fig.cap = "PMRF range tessellations for each of six recorded SCCs.  Black lines indicate boundaries of hydrophone tiles.  Black dots indicate approximate hydrophone locations.", out.width='100%'}
 
-include_graphics("../Figures/SCCTesselations.pdf")
+include_graphics("../Figures/SCCTesselations.png")
 
 ```
 
@@ -31,4 +31,9 @@ include_graphics("../Figures/M1SDepth.png")
 
 ```{r srl, fig.cap="Spline on maximum received level from M3.", out.width='100%', fig.align='center'}
 include_graphics("../Figures/M3SMaxRL.png")
+```
+
+```{r iterations, fig.cap = "Example of five iterations (colored lines) of the 5,000 posterior samples of the expected change in the probability of detecting a group vocal period (vertical axis) with increasing MFAS received level (horizontal axis) relative to when naval training activity but no MFAS was present on the range (left panel) and to when neither naval training activity nor MFAS were present on the range.", out.width='100%', fig.align='center'}
+
+include_graphics("../Figures/ExampleIterations.png")
 ```
