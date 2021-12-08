@@ -29,7 +29,7 @@ knitr::kable(table, caption="Number of hydrophones (HPs) used and number of obse
 The exact timing of activities during these exercises varied (Fig. \@ref(fig:timeseries)). For most SCCs, pre-activity data were available immediately preceding the onset of Naval training activity; however, in February 2013 the only available pre-activity data were collected almost a month prior to the onset of Naval training activity. In some SCCs, weekends or other breaks in training resulted in a break in training activity on the range during the days preceding MFAS use. MFAS was used for 3-4 days during each training event. 
 
 ```{r timeseries, fig.cap="Timeseries of six recorded Naval training activities at the Pacific Missile Range Facility. The timeseries are aligned relative to the first day that mid-frequency active (MFA) sonar (red triangles) was used in each exercise (horizontal axis). Days with white background indicate days for which recordings and data were available. Dark gray bars indicate the proportion of 30-min periods on each day, across all hydrophones, when group vocal periods (GVPs) were detected (vertical axis). Black dots indicate days when Naval activity was present on the range.", out.width = '50%', fig.align='center'}
-include_graphics("../Figures/Timeseries.pdf")
+include_graphics("../Figures/Timeseries.png")
 ```
 
 Across all SCCs, hydrophones, and conditions, a total of 2,312 GVPs were identified. The average probability of detecting a GVP during each half-hour period was therefore `r round(sum(rlData$DivePresent)/nrow(rlData), digits = 3)*100`\%. The spatial distribution of GVPs differed during the pre-activity phases of SCCs (Fig. \@ref(fig:obspdive); top panel).

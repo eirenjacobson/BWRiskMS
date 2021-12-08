@@ -76,7 +76,7 @@ Email: eiren.jacobson@st-andrews.ac.uk
 
 ## Abstract {.unlisted .unnumbered}
 
-Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-frequency active sonar (MFAS) have been quantified for some species and regions. We describe the effects of MFAS on the probability of detecting diving groups of Blainville's beaked whales on the US Navy Pacific Missile Range Facility (PMRF) in Hawaii and compare our results to previously published results for the same species at the Atlantic Undersea Test and Evaluation Center (AUTEC) in the Bahamas.  We used passive acoustic data collected at bottom-mounted hydrophones before and during six naval training exercises at PMRF along with modelled sonar received levels to describe the effect of training and MFAS on foraging groups of Blainville's beaked whales.  We used a multi-stage generalized additive modelling approach to control for the underlying spatial distribution of vocalizations under baseline conditions.  At an MFAS received level of 150\ dB\ re\ 1\ $\mu$Pa the probability of detecting groups of Blainville's beaked whales decreased by 61\% (95\% CI 56\%-65\%) compared to periods when general training activity was ongoing and by 88\% (95\% CI 87\%-92\%) compared to baseline conditions.  Our results indicate a more pronounced response to naval training and MFAS than has been previously reported.  [196/200]
+Behavioral responses of beaked whales (family Ziphiidae) to naval use of mid-frequency active sonar (MFAS) have been quantified for some species and regions. We describe the effects of MFAS on the probability of detecting diving groups of Blainville's beaked whales on the US Navy Pacific Missile Range Facility (PMRF) in Hawaii and compare our results to previously published results for the same species at the Atlantic Undersea Test and Evaluation Center (AUTEC) in the Bahamas.  We use passive acoustic data collected at bottom-mounted hydrophones before and during six naval training exercises at PMRF along with modelled sonar received levels to describe the effect of training and MFAS on foraging groups of Blainville's beaked whales.  We use a multi-stage generalized additive modelling approach to control for the underlying spatial distribution of vocalizations under baseline conditions.  At an MFAS received level of 150\ dB\ re\ 1\ $\mu$Pa the probability of detecting groups of Blainville's beaked whales decreases by 61\% (95\% CI 56\%-65\%) compared to periods when general training activity was ongoing and by 88\% (95\% CI 87\%-92\%) compared to baseline conditions.  Our results indicate a more pronounced response to naval training and MFAS than has been previously reported.  [196/200]
 
 ### KEYWORDS {.unlisted .unnumbered}
 
@@ -119,6 +119,7 @@ Writing -- review & editing: E.K.J, E.E.H., D.L.M., C.S.O., D.J.M., L.T.
 ### ORCID {.unlisted .unnumbered}
 
 Eiren K. Jacobson: https://orcid.org/0000-0003-0147-8367  
+E. Elizabeth Henderson: https://orcid.org/0000-0002-3212-1080
 David L. Miller: https://orcid.org/0000-0002-9640-6755  
 Cornelia S. Oedekoven: https://orcid.org/0000-0002-5610-7814  
 Len Thomas: https://orcid.org/0000-0002-7436-067X  
