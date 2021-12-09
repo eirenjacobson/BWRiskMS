@@ -112,14 +112,14 @@ Investigation: E.E.H.
 Methodology: E.K.J., E.E.H., D.L.M., C.S.O., L.T.  
 Software: E.K.J., D.L.M., C.S.O.  
 Supervision: L.T.  
-Visualization: E.K.J.  
+Visualization: E.K.J., C.S.O.  
 Writing -- original draft: E.K.J., E.E.H., D.L.M.  
 Writing -- review & editing: E.K.J, E.E.H., D.L.M., C.S.O., D.J.M., L.T.  
 
 ### ORCID {.unlisted .unnumbered}
 
 Eiren K. Jacobson: https://orcid.org/0000-0003-0147-8367  
-E. Elizabeth Henderson: https://orcid.org/0000-0002-3212-1080
+E. Elizabeth Henderson: https://orcid.org/0000-0002-3212-1080  
 David L. Miller: https://orcid.org/0000-0002-9640-6755  
 Cornelia S. Oedekoven: https://orcid.org/0000-0002-5610-7814  
 Len Thomas: https://orcid.org/0000-0002-7436-067X  
@@ -157,7 +157,7 @@ Len Thomas: https://orcid.org/0000-0002-7436-067X
 \newpage
 \refstepcounter{section}
 \setcounter{figure}{0}
-
+\raggedright
 ```{r child = '08_S4_SingleGAM.Rmd'}
 ```
 
