@@ -5,8 +5,8 @@ header-includes:
 - \usepackage{mathtools}
 - \usepackage{verbatim}
 - \usepackage{setspace}
-- \usepackage{lineno}
-- \linenumbers
+#- \usepackage{lineno}
+#- \linenumbers
 - \usepackage{float} \floatplacement{figure}{H}
 - \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\thesection.\arabic{table}}
   \setcounter{figure}{0} \renewcommand{\thefigure}{S\thesection.\arabic{figure}}}

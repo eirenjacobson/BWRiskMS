@@ -1,0 +1,44 @@
+---
+fontsize: 12pt
+header-includes:
+- \usepackage{amsmath}
+- \usepackage{mathtools}
+- \usepackage{verbatim}
+- \usepackage{setspace}
+- \usepackage{float} \floatplacement{figure}{H}
+- \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\thesection.\arabic{table}}
+  \setcounter{figure}{0} \renewcommand{\thefigure}{S\thesection.\arabic{figure}}}
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyr)
+library(dplyr)
+library(knitr)
+```
+
+\beginsupplement
+\setcounter{section}{0}
+
+\newpage
+\refstepcounter{section}
+
+
+```{r child = '05_S1_Uncertainty.Rmd'}
+```
+
+\newpage
+\refstepcounter{section}
+\setcounter{figure}{0}
+
+```{r child = '07_S3_FigsTabs.Rmd'}
+```
+
+\newpage
+\refstepcounter{section}
+\setcounter{figure}{0}
+\raggedright
+```{r child = '08_S4_SingleGAM.Rmd'}
+```
